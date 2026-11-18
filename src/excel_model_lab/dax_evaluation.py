@@ -199,7 +199,7 @@ class PbixMcpBackend:
             installed = metadata.version('pbix-mcp')
         except metadata.PackageNotFoundError as exc:
             raise DaxBackendUnavailableError(
-                'Install excel-model-lab[dax] to enable the optional DAX evaluator') from exc
+                'Install excel-data-model-lab[dax] to enable the optional DAX evaluator') from exc
         if installed != self.version:
             raise DaxBackendUnavailableError(
                 f'Expected pbix-mcp=={self.version}; found {installed}. Backend upgrades require conformance verification.')

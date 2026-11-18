@@ -34,7 +34,7 @@ def encrypt_string(key_file, text, *, flags=0x08000001):
         from cryptography.hazmat.primitives.ciphers import Cipher, modes
         from cryptography.hazmat.primitives.padding import PKCS7
     except ImportError as exc:
-        raise ImportError('OLE DB bindings require excel-model-lab[native-sources]') from exc
+        raise ImportError('OLE DB bindings require excel-data-model-lab[native-sources]') from exc
     if '\0' in text:
         raise ValueError('Source strings cannot contain NUL characters')
     raw = os.urandom(8) + (text + '\0').encode('utf-16le')

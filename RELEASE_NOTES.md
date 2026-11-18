@@ -1,4 +1,7 @@
-# Excel Model Lab release notes
+# Excel Data Model Lab release notes
+
+The distribution is now named `excel-data-model-lab`. Python imports and CLI
+commands remain compatible. The earlier `excel-model-lab` publication is legacy.
 
 ## 0.5.0rc1 (2026-11-18)
 

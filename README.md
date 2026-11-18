@@ -1,10 +1,14 @@
-# Excel Model Lab
+# Excel Data Model Lab
+
+Python imports remain `excel_model_lab` and `excelmodel`. The distribution was
+renamed from `excel-model-lab`; uninstall that older distribution before switching
+to avoid overlapping package files.
 
 Current release candidate: **0.5.0rc1**.
 
-Install with `python -m pip install excel-model-lab==0.5.0rc1`.
+Install with `python -m pip install excel-data-model-lab==0.5.0rc1`.
 
-Excel Model Lab is a headless Python writer for Excel's embedded Power Pivot /
+Excel Data Model Lab is a headless Python writer for Excel's embedded Power Pivot /
 Data Model. The writer does not require Excel, COM, Windows, or a remote model.
 Desktop Excel is used separately to verify compatibility and by the optional
 `desktop` extra for live workbook interaction.
@@ -139,7 +143,7 @@ excelmodel create report.xlsx model.yaml --workbook ordinary.xlsx
 
 `build` replaces named existing tables and adds new table names. CSV definitions
 can include `read_options` forwarded to Pandas (for example `dtype` or
-`parse_dates`). Install `excel-model-lab[parquet]` for Parquet input. Table
+`parse_dates`). Install `excel-data-model-lab[parquet]` for Parquet input. Table
 definitions can also contain `hidden`, `description`, `columns` (per-column
 `hidden`, `description`, `format`, `sort_by`) and `hierarchies` (`name`, `levels`,
 optional `hidden`, `description`, `level_names`). Paths are relative to the spec.

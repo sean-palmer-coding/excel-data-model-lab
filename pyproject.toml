@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "excel-model-lab"
+name = "excel-data-model-lab"
 version = "0.5.0rc1"
 description = "Headless template-based writer for embedded Excel Power Pivot models"
 readme = "README.md"

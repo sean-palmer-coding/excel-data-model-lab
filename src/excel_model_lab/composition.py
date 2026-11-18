@@ -52,7 +52,7 @@ def compose_workbook(destination, tables, write_worksheets, *, configure_model=N
     try:
         import xlsxwriter
     except ImportError as exc:
-        raise ImportError('Workbook composition requires XlsxWriter; install excel-model-lab[workbooks]') from exc
+        raise ImportError('Workbook composition requires XlsxWriter; install excel-data-model-lab[workbooks]') from exc
     destination = Path(destination)
     if destination.suffix.lower() != '.xlsx':
         raise ValueError('Composition output must be an .xlsx workbook')

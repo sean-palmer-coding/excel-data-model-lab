@@ -97,7 +97,7 @@ def _load_xlwings():
     try:
         return importlib.import_module('xlwings')
     except ImportError as exc:
-        raise DesktopSessionError('Install excel-model-lab[desktop] and Microsoft Excel for desktop sessions') from exc
+        raise DesktopSessionError('Install excel-data-model-lab[desktop] and Microsoft Excel for desktop sessions') from exc
 
 
 def _matches(xw, path, pid=None):
