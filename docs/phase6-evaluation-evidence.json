@@ -1,0 +1,89 @@
+{
+  "backend": "pbix-mcp==0.9.153",
+  "published_wheel": true,
+  "cases": 14,
+  "native_match": true,
+  "native_saved_reopen_match": true,
+  "values": {
+    "Total": 70,
+    "Rows": 4,
+    "Count Amount": 3,
+    "Blank Amount": 1,
+    "Distinct Products": 3,
+    "Weighted": 210,
+    "Category A": 50,
+    "Blank Scalar": null,
+    "Safe Divide": -1.0,
+    "Clear Category": 70,
+    "Filtered Amount": 60,
+    "Related Weighted": 240,
+    "Category Max": 50,
+    "Blank Is Zero": 1
+  },
+  "native_evidence_sha256": "42952978fafef99b396f56e0df5db09f9efc0195c1b4e4fb2da9b3647ed674fe",
+  "benchmarks": [
+    {
+      "rows": 1000,
+      "snapshot_seconds": 0.10495609999634326,
+      "snapshot_python_allocation_peak_bytes": 2007075,
+      "queries": [
+        {
+          "measure": "Total",
+          "median_seconds": 0.000357700017048046,
+          "python_allocation_peak_bytes": 77589,
+          "runs_seconds": [
+            0.0004983000108040869,
+            0.000357700017048046,
+            0.00022969997371546924
+          ]
+        },
+        {
+          "measure": "Weighted",
+          "median_seconds": 0.011910400004126132,
+          "python_allocation_peak_bytes": 308236,
+          "runs_seconds": [
+            0.011797399987699464,
+            0.011910400004126132,
+            0.01222609999240376
+          ]
+        }
+      ]
+    },
+    {
+      "rows": 100000,
+      "snapshot_seconds": 0.9457618000160437,
+      "snapshot_python_allocation_peak_bytes": 14820959,
+      "queries": [
+        {
+          "measure": "Total",
+          "median_seconds": 0.009972300002118573,
+          "python_allocation_peak_bytes": 869721,
+          "runs_seconds": [
+            0.013734100008150563,
+            0.009972300002118573,
+            0.00828650000039488
+          ]
+        },
+        {
+          "measure": "Weighted",
+          "median_seconds": 1.1767550999938976,
+          "python_allocation_peak_bytes": 23282160,
+          "runs_seconds": [
+            1.1767550999938976,
+            1.1551462000061292,
+            1.1956104999990202
+          ]
+        }
+      ]
+    }
+  ],
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.22621-SP0",
+  "date_cases": {
+    "Total": 60,
+    "Nested": 60,
+    "SelfFiltered": 20
+  },
+  "native_total_cases": 17,
+  "timing_method": "Three same-snapshot calls without tracemalloc; allocation peak measured in a separate call; no Excel speed comparison"
+}

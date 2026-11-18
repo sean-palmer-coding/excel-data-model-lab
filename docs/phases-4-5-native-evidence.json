@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-11",
+  "excel_version": "16.0.20625.20044",
+  "xlwings_version": "0.33.22",
+  "synthetic_data_only": true,
+  "cases": {
+    "desktop-native": {
+      "evidence_file": "desktop-native.json",
+      "sha256": "0659c95fd39dfe8342364b670c9796b3542926741edb94e3a675e9b53863c714",
+      "observed": {
+        "pid": 59500,
+        "attached_exact": true,
+        "attached_quit_rejected": true,
+        "dirty_close_rejected": true,
+        "updated_pivots": 1,
+        "before": {
+          "cube_total": [
+            [
+              100.0
+            ]
+          ],
+          "worksheet_formula": [
+            [
+              12.0
+            ]
+          ],
+          "literal": [
+            [
+              "=literal"
+            ],
+            [
+              "+literal"
+            ],
+            [
+              "'literal"
+            ]
+          ]
+        },
+        "saved_reopened": true,
+        "passed": true
+      }
+    },
+    "workflow-native": {
+      "evidence_file": "workflow-native.json",
+      "sha256": "10e8827fe9cc08a74b584bcea238e5ad80ed2860892c8fa5857338f3b2f71ece",
+      "observed": {
+        "live_batch": true,
+        "unsaved_user_edit_rejected": true,
+        "callback_failure_reopened_original": true,
+        "concurrent_reopen_rejected": true,
+        "handoff_total": 140,
+        "save_reopen_total": 140,
+        "passed": true
+      }
+    }
+  },
+  "example": {
+    "script": "examples/desktop_agent_workflow.py",
+    "expected_and_verified_total": 90,
+    "passed": true
+  }
+}

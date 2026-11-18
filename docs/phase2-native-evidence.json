@@ -1,0 +1,1660 @@
+{
+  "status": "experimental native acceptance checkpoint",
+  "normal_interactive_auto_refresh": "unverified",
+  "refresh_sequence": [
+    "RefreshTable",
+    "PivotCache.Refresh",
+    "Update"
+  ],
+  "cases": {
+    "matrix-fixed-native.xlsx.json": {
+      "source": "matrix-v1.xlsx",
+      "refreshed": [
+        {
+          "manual": false,
+          "range": "$A$3:$G$9",
+          "values": [
+            null,
+            "Region",
+            "Values",
+            null,
+            null,
+            null,
+            null,
+            null,
+            "East",
+            null,
+            "West",
+            null,
+            "Total Total Amount",
+            "Total Total Quantity",
+            "Category",
+            "Total Amount",
+            "Total Quantity",
+            "Total Amount",
+            "Total Quantity",
+            null,
+            null,
+            "Alpha",
+            10.0,
+            1.0,
+            30.0,
+            3.0,
+            40.0,
+            4.0,
+            "Beta",
+            20.0,
+            2.0,
+            null,
+            null,
+            20.0,
+            2.0,
+            "Gamma",
+            null,
+            null,
+            40.0,
+            4.0,
+            40.0,
+            4.0,
+            "Grand Total",
+            30.0,
+            3.0,
+            70.0,
+            7.0,
+            100.0,
+            10.0
+          ],
+          "sheet": "Multiple measures",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Quantity]"
+            }
+          ],
+          "name": "Multi",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$B$7",
+          "values": [
+            "Category",
+            "Total Amount",
+            "Alpha",
+            40.0,
+            "Beta",
+            20.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ],
+          "sheet": "Filters",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 3,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Filtered",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$B$10",
+          "values": [
+            "Row Labels",
+            "Total Amount",
+            "East",
+            30.0,
+            "Alpha",
+            10.0,
+            "Beta",
+            20.0,
+            "West",
+            70.0,
+            "Alpha",
+            30.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ],
+          "sheet": "Compact",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Compact",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$C$10",
+          "values": [
+            "Region",
+            "Category",
+            "Total Amount",
+            "East",
+            null,
+            30.0,
+            null,
+            "Alpha",
+            10.0,
+            null,
+            "Beta",
+            20.0,
+            "West",
+            null,
+            70.0,
+            null,
+            "Alpha",
+            30.0,
+            null,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            null,
+            100.0
+          ],
+          "sheet": "Outline",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Outline",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$A$4",
+          "values": [
+            "Total Amount",
+            100.0
+          ],
+          "sheet": "Total",
+          "axes": [
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "TotalOnly",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$D$5",
+          "values": [
+            null,
+            "Region",
+            null,
+            null,
+            null,
+            "East",
+            "West",
+            "Grand Total",
+            "Total Amount",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "sheet": "Columns",
+          "axes": [
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "ColumnsOnly",
+          "olap": true
+        },
+        {
+          "pivot": "Multi",
+          "sheet": "Charts",
+          "type": 57,
+          "chart": "Bars",
+          "series": 4
+        },
+        {
+          "pivot": "Filtered",
+          "sheet": "Charts",
+          "type": 4,
+          "chart": "Lines",
+          "series": 1
+        }
+      ],
+      "opened": [
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Multiple measures",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Quantity]"
+            }
+          ],
+          "name": "Multi",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Filters",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 3,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Filtered",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Compact",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Compact",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Outline",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Outline",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Total",
+          "axes": [
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "TotalOnly",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3",
+          "values": [
+            null
+          ],
+          "sheet": "Columns",
+          "axes": [
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "ColumnsOnly",
+          "olap": true
+        }
+      ],
+      "reopened": [
+        {
+          "manual": false,
+          "range": "$A$3:$G$9",
+          "values": [
+            null,
+            "Region",
+            "Values",
+            null,
+            null,
+            null,
+            null,
+            null,
+            "East",
+            null,
+            "West",
+            null,
+            "Total Total Amount",
+            "Total Total Quantity",
+            "Category",
+            "Total Amount",
+            "Total Quantity",
+            "Total Amount",
+            "Total Quantity",
+            null,
+            null,
+            "Alpha",
+            10.0,
+            1.0,
+            30.0,
+            3.0,
+            40.0,
+            4.0,
+            "Beta",
+            20.0,
+            2.0,
+            null,
+            null,
+            20.0,
+            2.0,
+            "Gamma",
+            null,
+            null,
+            40.0,
+            4.0,
+            40.0,
+            4.0,
+            "Grand Total",
+            30.0,
+            3.0,
+            70.0,
+            7.0,
+            100.0,
+            10.0
+          ],
+          "sheet": "Multiple measures",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Quantity]"
+            }
+          ],
+          "name": "Multi",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$B$7",
+          "values": [
+            "Category",
+            "Total Amount",
+            "Alpha",
+            40.0,
+            "Beta",
+            20.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ],
+          "sheet": "Filters",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 3,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Filtered",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$B$10",
+          "values": [
+            "Row Labels",
+            "Total Amount",
+            "East",
+            30.0,
+            "Alpha",
+            10.0,
+            "Beta",
+            20.0,
+            "West",
+            70.0,
+            "Alpha",
+            30.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ],
+          "sheet": "Compact",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Compact",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$C$10",
+          "values": [
+            "Region",
+            "Category",
+            "Total Amount",
+            "East",
+            null,
+            30.0,
+            null,
+            "Alpha",
+            10.0,
+            null,
+            "Beta",
+            20.0,
+            "West",
+            null,
+            70.0,
+            null,
+            "Alpha",
+            30.0,
+            null,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            null,
+            100.0
+          ],
+          "sheet": "Outline",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "Outline",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$A$4",
+          "values": [
+            "Total Amount",
+            100.0
+          ],
+          "sheet": "Total",
+          "axes": [
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "TotalOnly",
+          "olap": true
+        },
+        {
+          "manual": false,
+          "range": "$A$3:$D$5",
+          "values": [
+            null,
+            "Region",
+            null,
+            null,
+            null,
+            "East",
+            "West",
+            "Grand Total",
+            "Total Amount",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "sheet": "Columns",
+          "axes": [
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "name": "ColumnsOnly",
+          "olap": true
+        },
+        {
+          "pivot": "Multi",
+          "sheet": "Charts",
+          "type": 57,
+          "chart": "Bars",
+          "series": 4
+        },
+        {
+          "pivot": "Filtered",
+          "sheet": "Charts",
+          "type": 4,
+          "chart": "Lines",
+          "series": 1
+        }
+      ]
+    },
+    "append-existing-native.xlsx.json": {
+      "refreshed": [
+        {
+          "axes": [
+            {
+              "name": "[Products].[Category]",
+              "axis": 1
+            },
+            {
+              "name": "[Sales].[Region]",
+              "axis": 2
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3:$D$8",
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "SalesPivot"
+        },
+        {
+          "chart": "Chart 1",
+          "series": 2,
+          "pivot": "SalesPivot",
+          "type": 51,
+          "sheet": "Report"
+        },
+        {
+          "axes": [
+            {
+              "name": "[Sales].[Region]",
+              "axis": 1
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3:$B$6",
+          "sheet": "Added Report",
+          "values": [
+            "Region",
+            "Total Amount",
+            "East",
+            30.0,
+            "West",
+            70.0,
+            "Grand Total",
+            100.0
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "AddedPivot"
+        },
+        {
+          "chart": "AddedChart",
+          "series": 1,
+          "pivot": "AddedPivot",
+          "type": 51,
+          "sheet": "Added Report"
+        }
+      ],
+      "source": "append-existing.xlsx",
+      "opened": [
+        {
+          "axes": [
+            {
+              "name": "[Products].[Category]",
+              "axis": 1
+            },
+            {
+              "name": "[Sales].[Region]",
+              "axis": 2
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3:$D$8",
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "SalesPivot"
+        },
+        {
+          "axes": [
+            {
+              "name": "[Sales].[Region]",
+              "axis": 1
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3",
+          "sheet": "Added Report",
+          "values": [
+            null
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "AddedPivot"
+        }
+      ],
+      "reopened": [
+        {
+          "axes": [
+            {
+              "name": "[Products].[Category]",
+              "axis": 1
+            },
+            {
+              "name": "[Sales].[Region]",
+              "axis": 2
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3:$D$8",
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "SalesPivot"
+        },
+        {
+          "chart": "Chart 1",
+          "series": 2,
+          "pivot": "SalesPivot",
+          "type": 51,
+          "sheet": "Report"
+        },
+        {
+          "axes": [
+            {
+              "name": "[Sales].[Region]",
+              "axis": 1
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "range": "$A$3:$B$6",
+          "sheet": "Added Report",
+          "values": [
+            "Region",
+            "Total Amount",
+            "East",
+            30.0,
+            "West",
+            70.0,
+            "Grand Total",
+            100.0
+          ],
+          "manual": false,
+          "olap": true,
+          "name": "AddedPivot"
+        },
+        {
+          "chart": "AddedChart",
+          "series": 1,
+          "pivot": "AddedPivot",
+          "type": 51,
+          "sheet": "Added Report"
+        }
+      ]
+    },
+    "updated-reports-native.xlsx.json": {
+      "source": "updated-reports.xlsx",
+      "reopened": [
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            20.0,
+            60.0,
+            80.0,
+            "Beta",
+            40.0,
+            null,
+            40.0,
+            "Gamma",
+            null,
+            80.0,
+            80.0,
+            "Grand Total",
+            60.0,
+            140.0,
+            200.0
+          ],
+          "range": "$A$3:$D$8",
+          "name": "SalesPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        },
+        {
+          "chart": "Chart 1",
+          "sheet": "Report",
+          "type": 51,
+          "pivot": "SalesPivot",
+          "series": 2
+        },
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Added Report",
+          "values": [
+            "Region",
+            "Total Amount",
+            "East",
+            60.0,
+            "West",
+            140.0,
+            "Grand Total",
+            200.0
+          ],
+          "range": "$A$3:$B$6",
+          "name": "AddedPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        },
+        {
+          "chart": "AddedChart",
+          "sheet": "Added Report",
+          "type": 51,
+          "pivot": "AddedPivot",
+          "series": 1
+        }
+      ],
+      "opened": [
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "range": "$A$3:$D$8",
+          "name": "SalesPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        },
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Added Report",
+          "values": [
+            "Region",
+            "Total Amount",
+            "East",
+            30.0,
+            "West",
+            70.0,
+            "Grand Total",
+            100.0
+          ],
+          "range": "$A$3:$B$6",
+          "name": "AddedPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        }
+      ],
+      "refreshed": [
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Report",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            20.0,
+            60.0,
+            80.0,
+            "Beta",
+            40.0,
+            null,
+            40.0,
+            "Gamma",
+            null,
+            80.0,
+            80.0,
+            "Grand Total",
+            60.0,
+            140.0,
+            200.0
+          ],
+          "range": "$A$3:$D$8",
+          "name": "SalesPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        },
+        {
+          "chart": "Chart 1",
+          "sheet": "Report",
+          "type": 51,
+          "pivot": "SalesPivot",
+          "series": 2
+        },
+        {
+          "manual": false,
+          "olap": true,
+          "sheet": "Added Report",
+          "values": [
+            "Region",
+            "Total Amount",
+            "East",
+            60.0,
+            "West",
+            140.0,
+            "Grand Total",
+            200.0
+          ],
+          "range": "$A$3:$B$6",
+          "name": "AddedPivot",
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ]
+        },
+        {
+          "chart": "AddedChart",
+          "sheet": "Added Report",
+          "type": 51,
+          "pivot": "AddedPivot",
+          "series": 1
+        }
+      ]
+    },
+    "chart-bar-native.xlsx.json": {
+      "refreshed": [
+        {
+          "olap": true,
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "sheet": "Report",
+          "range": "$A$3:$D$8",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "name": "SalesPivot"
+        },
+        {
+          "pivot": "SalesPivot",
+          "sheet": "Charts",
+          "type": 57,
+          "chart": "SalesChart",
+          "series": 2
+        }
+      ],
+      "source": "chart-bar.xlsx",
+      "reopened": [
+        {
+          "olap": true,
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            }
+          ],
+          "sheet": "Report",
+          "range": "$A$3:$D$8",
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "name": "SalesPivot"
+        },
+        {
+          "pivot": "SalesPivot",
+          "sheet": "Charts",
+          "type": 57,
+          "chart": "SalesChart",
+          "series": 2
+        }
+      ],
+      "opened": {
+        "olap": true,
+        "axes": [
+          {
+            "axis": 1,
+            "name": "[Products].[Category]"
+          },
+          {
+            "axis": 2,
+            "name": "[Sales].[Region]"
+          },
+          {
+            "axis": 4,
+            "name": "[Measures].[Total Amount]"
+          }
+        ],
+        "sheet": "Report",
+        "range": "$A$3",
+        "values": [
+          null
+        ],
+        "manual": false,
+        "name": "SalesPivot"
+      }
+    },
+    "chart-line-native.xlsx.json": {
+      "opened": {
+        "name": "SalesPivot",
+        "axes": [
+          {
+            "name": "[Products].[Category]",
+            "axis": 1
+          },
+          {
+            "name": "[Sales].[Region]",
+            "axis": 2
+          },
+          {
+            "name": "[Measures].[Total Amount]",
+            "axis": 4
+          }
+        ],
+        "values": [
+          null
+        ],
+        "manual": false,
+        "range": "$A$3",
+        "olap": true,
+        "sheet": "Report"
+      },
+      "source": "chart-line.xlsx",
+      "refreshed": [
+        {
+          "name": "SalesPivot",
+          "axes": [
+            {
+              "name": "[Products].[Category]",
+              "axis": 1
+            },
+            {
+              "name": "[Sales].[Region]",
+              "axis": 2
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "range": "$A$3:$D$8",
+          "olap": true,
+          "sheet": "Report"
+        },
+        {
+          "type": 4,
+          "series": 2,
+          "chart": "SalesChart",
+          "pivot": "SalesPivot",
+          "sheet": "Charts"
+        }
+      ],
+      "reopened": [
+        {
+          "name": "SalesPivot",
+          "axes": [
+            {
+              "name": "[Products].[Category]",
+              "axis": 1
+            },
+            {
+              "name": "[Sales].[Region]",
+              "axis": 2
+            },
+            {
+              "name": "[Measures].[Total Amount]",
+              "axis": 4
+            }
+          ],
+          "values": [
+            "Total Amount",
+            "Region",
+            null,
+            null,
+            "Category",
+            "East",
+            "West",
+            "Grand Total",
+            "Alpha",
+            10.0,
+            30.0,
+            40.0,
+            "Beta",
+            20.0,
+            null,
+            20.0,
+            "Gamma",
+            null,
+            40.0,
+            40.0,
+            "Grand Total",
+            30.0,
+            70.0,
+            100.0
+          ],
+          "manual": false,
+          "range": "$A$3:$D$8",
+          "olap": true,
+          "sheet": "Report"
+        },
+        {
+          "type": 4,
+          "series": 2,
+          "chart": "SalesChart",
+          "pivot": "SalesPivot",
+          "sheet": "Charts"
+        }
+      ]
+    },
+    "chart-multi-native.xlsx.json": {
+      "refreshed": [
+        {
+          "manual": false,
+          "range": "$A$3:$G$9",
+          "olap": true,
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Quantity]"
+            }
+          ],
+          "sheet": "Report",
+          "values": [
+            null,
+            "Region",
+            "Values",
+            null,
+            null,
+            null,
+            null,
+            null,
+            "East",
+            null,
+            "West",
+            null,
+            "Total Total Amount",
+            "Total Total Quantity",
+            "Category",
+            "Total Amount",
+            "Total Quantity",
+            "Total Amount",
+            "Total Quantity",
+            null,
+            null,
+            "Alpha",
+            10.0,
+            1.0,
+            30.0,
+            3.0,
+            40.0,
+            4.0,
+            "Beta",
+            20.0,
+            2.0,
+            null,
+            null,
+            20.0,
+            2.0,
+            "Gamma",
+            null,
+            null,
+            40.0,
+            4.0,
+            40.0,
+            4.0,
+            "Grand Total",
+            30.0,
+            3.0,
+            70.0,
+            7.0,
+            100.0,
+            10.0
+          ],
+          "name": "Multi"
+        },
+        {
+          "chart": "SalesChart",
+          "series": 4,
+          "sheet": "Charts",
+          "type": 57,
+          "pivot": "Multi"
+        }
+      ],
+      "opened": {
+        "manual": false,
+        "range": "$A$3",
+        "olap": true,
+        "axes": [
+          {
+            "axis": 1,
+            "name": "[Products].[Category]"
+          },
+          {
+            "axis": 2,
+            "name": "[Sales].[Region]"
+          },
+          {
+            "axis": 4,
+            "name": "[Measures].[Total Amount]"
+          },
+          {
+            "axis": 4,
+            "name": "[Measures].[Total Quantity]"
+          }
+        ],
+        "sheet": "Report",
+        "values": [
+          null
+        ],
+        "name": "Multi"
+      },
+      "source": "chart-multi.xlsx",
+      "reopened": [
+        {
+          "manual": false,
+          "range": "$A$3:$G$9",
+          "olap": true,
+          "axes": [
+            {
+              "axis": 1,
+              "name": "[Products].[Category]"
+            },
+            {
+              "axis": 2,
+              "name": "[Sales].[Region]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Amount]"
+            },
+            {
+              "axis": 4,
+              "name": "[Measures].[Total Quantity]"
+            }
+          ],
+          "sheet": "Report",
+          "values": [
+            null,
+            "Region",
+            "Values",
+            null,
+            null,
+            null,
+            null,
+            null,
+            "East",
+            null,
+            "West",
+            null,
+            "Total Total Amount",
+            "Total Total Quantity",
+            "Category",
+            "Total Amount",
+            "Total Quantity",
+            "Total Amount",
+            "Total Quantity",
+            null,
+            null,
+            "Alpha",
+            10.0,
+            1.0,
+            30.0,
+            3.0,
+            40.0,
+            4.0,
+            "Beta",
+            20.0,
+            2.0,
+            null,
+            null,
+            20.0,
+            2.0,
+            "Gamma",
+            null,
+            null,
+            40.0,
+            4.0,
+            40.0,
+            4.0,
+            "Grand Total",
+            30.0,
+            3.0,
+            70.0,
+            7.0,
+            100.0,
+            10.0
+          ],
+          "name": "Multi"
+        },
+        {
+          "chart": "SalesChart",
+          "series": 4,
+          "sheet": "Charts",
+          "type": 57,
+          "pivot": "Multi"
+        }
+      ]
+    }
+  }
+}

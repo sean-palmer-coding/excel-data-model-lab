@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-18",
+  "platform": "Windows / local Microsoft Excel",
+  "max_simultaneous_test_workbooks": 1,
+  "external_source_refresh": false,
+  "cases": [
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "column",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "hierarchy",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "TheTable",
+          "rows": 500
+        }
+      ],
+      "case": "integer",
+      "reopened": true
+    },
+    {
+      "pivots": [
+        {
+          "name": "Summary",
+          "values": [
+            "Category",
+            "Total",
+            "A",
+            10,
+            "B",
+            20,
+            "Grand Total",
+            30
+          ]
+        },
+        {
+          "name": "Extra",
+          "values": [
+            "Total",
+            30
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "name": "Sales",
+          "rows": 2
+        }
+      ],
+      "case": "report",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "column-before",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "hierarchy-before",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "control-clean",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "control-key",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "control-calc-dot",
+      "reopened": true
+    },
+    {
+      "pivots": [],
+      "tables": [
+        {
+          "name": "T",
+          "rows": 2
+        }
+      ],
+      "case": "control-constant",
+      "reopened": true
+    }
+  ],
+  "calculated_combination": {
+    "process_recalc": "native_measure_edit_completed",
+    "stable": true,
+    "after": {
+      "columns": [
+        "T[Key]",
+        "T[No.]",
+        "T[Calc.Dot]"
+      ],
+      "rows": [
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          2,
+          4,
+          8
+        ]
+      ]
+    },
+    "name": "combined-recalculated",
+    "before": {
+      "columns": [
+        "T[Key]",
+        "T[No.]",
+        "T[Calc.Dot]"
+      ],
+      "rows": [
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          2,
+          4,
+          8
+        ]
+      ]
+    },
+    "status": "queried_and_reopened"
+  },
+  "input_hashes": [
+    {
+      "case": "column",
+      "sha256": "c2785e39c2f3291eb3efdfb6b992e17bde2203a4a3094fd7d971d15d70e020c0"
+    },
+    {
+      "case": "hierarchy",
+      "sha256": "56e6665ea1f4f0c7ef2db5f669b7eee81cad24721496c1ea5959fcbcee9cb71a"
+    },
+    {
+      "case": "integer",
+      "sha256": "c5217280773ec3e268979655900b738f8a0383cf1898dbdd61e0fd476a6e6993"
+    },
+    {
+      "case": "report",
+      "sha256": "760b8696493c3f39f0fb801d05f37a6444eedaad42b0a0b05f996a3befa03369"
+    },
+    {
+      "case": "column-before",
+      "sha256": "042abdafd326c125602781a0c76b1440b850632b51c54fca2befb573056c8c94"
+    },
+    {
+      "case": "hierarchy-before",
+      "sha256": "467db4d1631c4d4eedcccc0bf6dd6724437759d4a4a70c903dd6001e33f9ea79"
+    },
+    {
+      "case": "control-clean",
+      "sha256": "a826892c32f9f2fa1c8d1c3e80c28e8fc3295cb32dd5362f3ba4608babaf9adf"
+    },
+    {
+      "case": "control-key",
+      "sha256": "d76f80ac645328871390d944f0dc24e3880bdf41b1a3965325d67cd0d7c66a75"
+    },
+    {
+      "case": "control-calc-dot",
+      "sha256": "1e03da401d1e9c661b44ed1410845e93d2b4fe4b0b8a1aff095fd39d0aeb5828"
+    },
+    {
+      "case": "control-constant",
+      "sha256": "ecc14062aca43bbafea13b9e5253c8851b991b3cfbe9ff3922a4b5c5b092026a"
+    },
+    {
+      "case": "combined",
+      "sha256": "edc43c8c15a9ec8debb1508c53b2a44f4ad3bf51240bd122044bd5e791aa8a84"
+    }
+  ],
+  "notes": [
+    "Calculated columns explicitly processed using the existing native measure-edit verification harness.",
+    "Integer source data is generated; no excluded historical workbook is required."
+  ]
+}

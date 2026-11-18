@@ -1,0 +1,22 @@
+include README.md RELEASE_NOTES.md STATUS.md MVP_ACCEPTANCE.md LOCAL_HANDOFF.md
+include SOURCE_AND_DEPENDENCY_API.md SPEC_AND_CLI.md
+recursive-include tests *.py *.xlsx *.idf *.hidx *.bin *.xml *.json
+recursive-include scripts *.py
+include tools/generate_nls_weights.py
+include tools/generate_nls_jamo.py
+include tools/verify_model_reports.ps1
+include tools/verify_model_report_controls.ps1
+include tools/update_model_reports.ps1
+include tools/verify_analytical_workbook.ps1
+include THIRD_PARTY_NOTICES.md
+
+# Historical fixture origins are not sufficiently recorded for redistribution.
+# They remain available for local regression tests, not in release source bundles.
+exclude tests/data/supplier-quality.xlsx
+exclude tests/data/null_data_id.xlsx
+exclude tests/data/native-10000.hidx
+exclude tests/data/native-10000.idf
+exclude tests/data/native-two-values-pos.idf
+include LICENSE resource-provenance.json
+recursive-include docs *.md *.json
+recursive-include examples *.py

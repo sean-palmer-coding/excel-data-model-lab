@@ -1,0 +1,417 @@
+{
+  "excel_version": "16.0.20625.20044",
+  "date": "2026-11-11",
+  "synthetic_data_only": true,
+  "external_live_query": "blocked: no authorized available endpoint; local SSAS installer requires OS administrator elevation",
+  "cases": {
+    "dashboard": {
+      "evidence_file": "phase3-dashboard-native-v7.xlsx.json",
+      "sha256": "a4fe39173d2df5caea9558ea0067d235ccd6d1574ead90d4925f0c186c7b82ce",
+      "observed": {
+        "passed": true,
+        "before": [
+          {
+            "sheet": "Dashboard",
+            "cell": "B3",
+            "value": "Total Amount",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total Amount]\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B4",
+            "value": "Alpha",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Category].&[Alpha]\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B5",
+            "value": 100,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B6",
+            "value": 40,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3,B4)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B7",
+            "value": "Alpha and Beta",
+            "formula": "=CUBESET(\"ThisWorkbookDataModel\",\"{[Sales].[Category].&[Alpha],[Sales].[Category].&[Beta]}\",\"Alpha and Beta\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B8",
+            "value": 2,
+            "formula": "=CUBESETCOUNT(B7)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B9",
+            "value": "Beta",
+            "formula": "=CUBERANKEDMEMBER(\"ThisWorkbookDataModel\",B7,2)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B10",
+            "value": 60,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3,B7)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B11",
+            "value": "Alpha",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Category].&[Alpha]\",\"Alpha\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B13",
+            "value": 100,
+            "formula": "=SUM(InputAmount)"
+          },
+          {
+            "sheet": "Inputs",
+            "cell": "A8",
+            "value": "=Literal source text",
+            "formula": "=Literal source text"
+          }
+        ],
+        "reopened": [
+          {
+            "sheet": "Dashboard",
+            "cell": "B3",
+            "value": "Total Amount",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total Amount]\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B4",
+            "value": "Alpha",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Category].&[Alpha]\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B5",
+            "value": 100,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B6",
+            "value": 40,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3,B4)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B7",
+            "value": "Alpha and Beta",
+            "formula": "=CUBESET(\"ThisWorkbookDataModel\",\"{[Sales].[Category].&[Alpha],[Sales].[Category].&[Beta]}\",\"Alpha and Beta\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B8",
+            "value": 2,
+            "formula": "=CUBESETCOUNT(B7)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B9",
+            "value": "Beta",
+            "formula": "=CUBERANKEDMEMBER(\"ThisWorkbookDataModel\",B7,2)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B10",
+            "value": 60,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",B3,B7)"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B11",
+            "value": "Alpha",
+            "formula": "=CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Category].&[Alpha]\",\"Alpha\")"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B13",
+            "value": 100,
+            "formula": "=SUM(InputAmount)"
+          },
+          {
+            "sheet": "Inputs",
+            "cell": "A8",
+            "value": "=Literal source text",
+            "formula": "=Literal source text"
+          }
+        ],
+        "chart_count": 3,
+        "pivot_totals": {
+          "SalesPivot": 100
+        }
+      }
+    },
+    "ordinary_open": {
+      "evidence_file": "phase3-cli-open-verified-v2.xlsx.json",
+      "sha256": "7e837a80afbf8ffe57e6855e31f1a9fa18d9a7bce66bc9966a34c3c2a064a6f3",
+      "observed": {
+        "pivots": [
+          {
+            "name": "SalesPivot",
+            "values": [
+              null
+            ]
+          }
+        ],
+        "method": "Excel /x file; ROT binding only; no Open, Refresh, Initialize, or Update",
+        "controls": 2,
+        "charts": [
+          {
+            "name": "Chart 1",
+            "series": 1
+          },
+          {
+            "name": "Chart 1",
+            "series": 1
+          },
+          {
+            "name": "SalesChart",
+            "series": 0
+          }
+        ],
+        "cells": {
+          "B11": "Alpha",
+          "B10": 60,
+          "B3": "Total Amount",
+          "B8": 2,
+          "B7": "Alpha and Beta",
+          "B9": "Beta",
+          "B4": "Alpha",
+          "B13": 100,
+          "B6": 40,
+          "B5": 100
+        }
+      }
+    },
+    "chart_series": {
+      "evidence_file": "phase3-native-chart-series.json",
+      "sha256": "a5ea1ad0bf7faec081a2f25ac8951ac150d2b564fcf9c0411e244760b1f2bf2d",
+      "observed": [
+        {
+          "sheet": "Inputs",
+          "series": [
+            {
+              "name": "Input amounts",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          ],
+          "name": "Chart 1"
+        },
+        {
+          "sheet": "Dashboard",
+          "series": [
+            {
+              "name": "Input trend",
+              "values": [
+                10,
+                20,
+                30,
+                40
+              ]
+            }
+          ],
+          "name": "Chart 1"
+        },
+        {
+          "sheet": "Dashboard",
+          "series": [
+            {
+              "name": "Total",
+              "values": [
+                40,
+                20,
+                40
+              ]
+            }
+          ],
+          "name": "SalesChart"
+        }
+      ]
+    },
+    "controls": {
+      "evidence_file": "phase3-controls-native.xlsx.json",
+      "sha256": "d5f687a9fbd6f5145f9fb6f09ee4ff1378b12860a7920df6c90083787706d03e",
+      "observed": {
+        "passed": true,
+        "initial": {
+          "total": 100.0,
+          "name": "SalesPivot",
+          "values": [
+            "Category",
+            "Total Amount",
+            "Alpha",
+            40.0,
+            "Beta",
+            20.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ]
+        },
+        "cleared": {
+          "total": 100.0,
+          "name": "SalesPivot",
+          "values": [
+            "Category",
+            "Total Amount",
+            "Alpha",
+            40.0,
+            "Beta",
+            20.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ]
+        },
+        "controls": [
+          {
+            "views": 1,
+            "filtered": {
+              "total": 40.0,
+              "name": "SalesPivot",
+              "values": [
+                "Category",
+                "Total Amount",
+                "Alpha",
+                40.0,
+                "Grand Total",
+                40.0
+              ]
+            },
+            "connections": 1,
+            "source": "[Sales].[Category]",
+            "name": "Slicer_Categories",
+            "type": 1
+          },
+          {
+            "views": 1,
+            "filtered": {
+              "total": 30.0,
+              "name": "SalesPivot",
+              "values": [
+                "Category",
+                "Total Amount",
+                "Alpha",
+                10.0,
+                "Beta",
+                20.0,
+                "Grand Total",
+                30.0
+              ]
+            },
+            "connections": 1,
+            "source": "[Sales].[OrderDate]",
+            "name": "Timeline_OrderDates",
+            "type": 2
+          }
+        ],
+        "reopened": {
+          "total": 100.0,
+          "name": "SalesPivot",
+          "values": [
+            "Category",
+            "Total Amount",
+            "Alpha",
+            40.0,
+            "Beta",
+            20.0,
+            "Gamma",
+            40.0,
+            "Grand Total",
+            100.0
+          ]
+        }
+      }
+    },
+    "scale": {
+      "evidence_file": "phase3-scale-native-verified.xlsx.json",
+      "sha256": "ae137f3f84c002e448e4a3eb886938d9ec45d74ea7e8c1121545aee1906fc93d",
+      "observed": {
+        "passed": true,
+        "before": [
+          {
+            "sheet": "Dashboard",
+            "cell": "B3",
+            "value": 4999950000,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total]\"))"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B4",
+            "value": 49950000,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total]\"),CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Group].&[Group 000]\"))"
+          }
+        ],
+        "reopened": [
+          {
+            "sheet": "Dashboard",
+            "cell": "B3",
+            "value": 4999950000,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total]\"))"
+          },
+          {
+            "sheet": "Dashboard",
+            "cell": "B4",
+            "value": 49950000,
+            "formula": "=CUBEVALUE(\"ThisWorkbookDataModel\",CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Measures].[Total]\"),CUBEMEMBER(\"ThisWorkbookDataModel\",\"[Sales].[Group].&[Group 000]\"))"
+          }
+        ],
+        "chart_count": 1,
+        "pivot_totals": {
+          "GroupTotals": 4999950000
+        }
+      }
+    },
+    "scale_authoring": {
+      "evidence_file": "phase3-scale-100000.benchmark.json",
+      "sha256": "c8a7962adafdb4683ff4c769211f543535cb4fedfa232ddf241dd5421d40f8e4",
+      "observed": {
+        "rows": 100000,
+        "groups": 100,
+        "authoring_seconds": 15.292676100012613,
+        "python_peak_bytes": 47355118,
+        "file_bytes": 780310,
+        "expected_total": 4999950000,
+        "expected_group_000": 49950000
+      }
+    },
+    "external_metadata": {
+      "evidence_file": "native-metadata-result.json",
+      "sha256": "b006070896f087d1b428131fd8cc556adfbe3e49fc63a6533066b96da95d11dc",
+      "observed": [
+        {
+          "name": "Connection",
+          "type": 9
+        },
+        {
+          "olap": true,
+          "name": "Live Sales",
+          "commandType": 1,
+          "type": 1,
+          "command": "Model"
+        },
+        {
+          "name": "ThisWorkbookDataModel",
+          "type": 7
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,389 @@
+<KpiTemplates xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"><CalculationProperty>
+					<CalculationReference>[Total Amount]</CalculationReference>
+					<CalculationType>Member</CalculationType>
+					<Description />
+					<FormatString>''</FormatString>
+					<ForeColor />
+					<BackColor />
+					<FontName />
+					<FontSize />
+					<FontFlags />
+					<NonEmptyBehavior />
+					<AssociatedMeasureGroupID />
+					<DisplayFolder />
+					<Language />
+					<Annotations>
+						
+            
+						<Annotation>
+							
+              
+							<Name>Type</Name>
+							
+              
+							<Value>Kpi</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>IsPrivate</Name>
+							
+              
+							<Value>False</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>Format</Name>
+							
+              
+							<Value>
+								
+                
+								<Format Format="General" />
+								
+              
+							</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>GoalType</Name>
+							
+              
+							<Value>Measure</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiStatusType</Name>
+							
+              
+							<Value>Linear</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiThresholdType</Name>
+							
+              
+							<Value>Percentage</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiThresholdOrdering</Name>
+							
+              
+							<Value>Ascending</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiThresholdCount</Name>
+							
+              
+							<Value>2</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiThreshold_0</Name>
+							
+              
+							<Value>40</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>KpiThreshold_1</Name>
+							
+              
+							<Value>80</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>ValueDescription</Name>
+							
+              
+							<Value />
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>GoalDescription</Name>
+							
+              
+							<Value />
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>StatusDescription</Name>
+							
+              
+							<Value />
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>TrendDescription</Name>
+							
+              
+							<Value />
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>GoalMeasure</Name>
+							
+              
+							<Value>Target Amount</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>GoalMeasureTableName</Name>
+							
+              
+							<Value>Sales</Value>
+							
+            
+						</Annotation>
+						
+          
+					</Annotations>
+					<Translations />
+				</CalculationProperty>
+				<CalculationProperty>
+					<CalculationReference>[_Total Amount Goal]</CalculationReference>
+					<CalculationType>Member</CalculationType>
+					<Description />
+					<Visible>false</Visible>
+					<FormatString />
+					<ForeColor />
+					<BackColor />
+					<FontName />
+					<FontSize />
+					<FontFlags />
+					<NonEmptyBehavior />
+					<AssociatedMeasureGroupID />
+					<DisplayFolder />
+					<Language />
+					<Annotations>
+						
+            
+						<Annotation>
+							
+              
+							<Name>Type</Name>
+							
+              
+							<Value>SupportMdx</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectType</Name>
+							
+              
+							<Value>Measure</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectName</Name>
+							
+              
+							<Value>Total Amount</Value>
+							
+            
+						</Annotation>
+						
+          
+					</Annotations>
+					<Translations />
+				</CalculationProperty>
+				<CalculationProperty>
+					<CalculationReference>[_Total Amount Status]</CalculationReference>
+					<CalculationType>Member</CalculationType>
+					<Description />
+					<Visible>false</Visible>
+					<FormatString />
+					<ForeColor />
+					<BackColor />
+					<FontName />
+					<FontSize />
+					<FontFlags />
+					<NonEmptyBehavior />
+					<AssociatedMeasureGroupID />
+					<DisplayFolder />
+					<Language />
+					<Annotations>
+						
+            
+						<Annotation>
+							
+              
+							<Name>Type</Name>
+							
+              
+							<Value>SupportMdx</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectType</Name>
+							
+              
+							<Value>Measure</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectName</Name>
+							
+              
+							<Value>Total Amount</Value>
+							
+            
+						</Annotation>
+						
+          
+					</Annotations>
+					<Translations />
+				</CalculationProperty>
+				<CalculationProperty>
+					<CalculationReference>KPIs.[Total Amount]</CalculationReference>
+					<CalculationType>Member</CalculationType>
+					<Description />
+					<FormatString />
+					<ForeColor />
+					<BackColor />
+					<FontName />
+					<FontSize />
+					<FontFlags />
+					<NonEmptyBehavior />
+					<AssociatedMeasureGroupID />
+					<DisplayFolder />
+					<Language />
+					<Annotations>
+						
+            
+						<Annotation>
+							
+              
+							<Name>Type</Name>
+							
+              
+							<Value>SupportKpi</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectType</Name>
+							
+              
+							<Value>Measure</Value>
+							
+            
+						</Annotation>
+						
+            
+						<Annotation>
+							
+              
+							<Name>MainObjectName</Name>
+							
+              
+							<Value>Total Amount</Value>
+							
+            
+						</Annotation>
+						
+          
+					</Annotations>
+					<Translations />
+				</CalculationProperty>
+				</KpiTemplates>

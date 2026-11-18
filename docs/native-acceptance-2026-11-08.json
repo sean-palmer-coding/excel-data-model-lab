@@ -1,0 +1,1432 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-08",
+  "platform": "Windows",
+  "excel_file_version": "16.0.20625.20044",
+  "library_version": "0.3.1rc1 (working source)",
+  "method": "Power Pivot UI or separate owned Excel.Application data API, one test workbook at a time; independent Python readback where noted",
+  "complete": true,
+  "results": [
+    {
+      "fixture": "work/calculated-column-candidate-v2.xlsx",
+      "sha256_after_save": "a23ae97ef610079857d51cff8a7da2122932de34d07641f76cc52b7de6eceac1",
+      "load": "pass",
+      "operation": "Calculate pending Doubled column",
+      "observed": [
+        2,
+        4,
+        6
+      ],
+      "save": "pass",
+      "reader_readback": "pass",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "work/date-marked-candidate.xlsx",
+      "sha256_after_save": "4bcf7ad968e8215b442d88ff0908c3515b1a9c0af18124c1e5f727f1fcc15990",
+      "load": "pass",
+      "observed": "Calendar has three rows; Mark as Date Table checked; settings available",
+      "save": "pass",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "work/perspectives-candidate.xlsx",
+      "sha256_after_save": "45d520ee3537bf255ce488426a3d3ce7474daea9f846e5d05e6252e8fcd3914a",
+      "load": "pass",
+      "observed": "Calendar perspective Date selected, Day excluded; Sales perspective Amount and TotalAmount selected, SalesDate excluded",
+      "save": "pass",
+      "reader_readback": "two perspective names preserved",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "compatibility-suite/api-linked-table-bound-2026-11-08.xlsx",
+      "sha256_after_save": "55613b0ed17f13458ba0e9cf83bb826fc4d891aaa5aa5d7a07082c0610a3be90",
+      "load": "pass",
+      "operation": "Refresh local linked worksheet table",
+      "observed": "Three rows transferred, zero errors; IDs changed from 10/20/30 to 1/2/3; labels Alpha/Beta/Gamma",
+      "save": "pass",
+      "reader_readback": "pass",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "compatibility-suite/api-wide-double-v2.xlsx",
+      "sha256_after_save": "0cfeca01058fffb6e10343d0f6979da9e834d09d2a25087d2e9a05afc751696f",
+      "load": "pass",
+      "observed": [
+        -1e+100,
+        1e-100,
+        1e+100
+      ],
+      "save": "pass",
+      "reader_readback": "pass",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "compatibility-suite/api-int64-diagnostics.xlsx",
+      "load": "pass",
+      "aggregation": "fail",
+      "observed": "Signed64 minimum, zero and maximum display; Count=3; Total/Minimum/Maximum/SUMX blank",
+      "save": "not performed"
+    },
+    {
+      "fixture": "compatibility-suite/api-int64-without-sentinel.xlsx",
+      "load": "pass",
+      "observed": "Signed64 minimum plus one, zero and maximum; Total=0",
+      "save": "pass",
+      "reopen": "pending"
+    },
+    {
+      "fixture": "compatibility-suite/api-int64-usage-v3.xlsx",
+      "load": "pass",
+      "observed": "Signed64 minimum, zero and maximum display; Count=3; Total/MIN/MAX blank after UI access recovered",
+      "aggregation": "fail",
+      "sha256_observed_file": "01de5ff0d568694f9e0195f68a5e4c09f51a481a21d28d56a1fa7f97bd4f5872"
+    },
+    {
+      "fixture": "compatibility-suite/api-type-conversions.xlsx",
+      "sha256_after_save": "5b0894019087c2a2e4fe6b7b30451794e9fde731e995b19ac0a13884fd29bb57",
+      "load": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Converted Whole10/20/30, Money and Real1.25/2.5/3.75, FlagTrue/False/True, DateJanuary1/2/3 2026; totals60/7.5/7.5. Dictionary Wide exact strings -9223372036854775807,0,9223372036854775807. Saved via Power Pivot, closed, reopened Manage without errors; totals unchanged."
+    },
+    {
+      "fixture": "compatibility-suite/api-native-minimum-reference.xlsx",
+      "load": "pass",
+      "observed": "CONVERT-based DAX comparison measures returned #ERROR and provide no evidence about numeric boundary behavior. CurrencyBoundary containing -922337203685477.5808, 0.0001, and 922337203685477.5807 returned blank MIN and MAX; SUM displayed 0.",
+      "aggregation": "fail",
+      "save": "not performed"
+    },
+    {
+      "fixture": "compatibility-suite/api-native-minimum-reference-v2.xlsx",
+      "load": "pass",
+      "observed": "CurrencyBoundary containing -922337203685477.5807, 0.0001, and 922337203685477.5807: MIN displayed -922337203685478 under General formatting (rounded, not exact-value proof); MAX was blank; SUM displayed 0.0001. Literal integer comparison measures displayed rounded scientific notation; equality was False, without proof of exact native integer type.",
+      "aggregation": "fail at currency maximum; minimum exactness unverified",
+      "save": "not performed; closed without saving"
+    },
+    {
+      "fixture": "compatibility-suite/api-boundary-matrix.xlsx",
+      "load": "pass",
+      "purpose": "Separate maximum/minimum tests for integer and currency endpoints, one storage unit inside, and 2047 units inside; explicit ISBLANK-based presence measures distinguish missing aggregates from rounded displays.",
+      "method": "Separate owned Excel.Application; Model.Initialize; direct ModelConnection.ADOConnection.Execute; 12 DAX queries with ADODB types and invariant exact text; no refresh",
+      "evidence": "work/native-boundary-matrix.json",
+      "sha256_observed_file": "f5b12315e9bc4a3002ca12ace8f236d31b4f66b4462731380d754d36337d1711",
+      "observed": "Exact integer 9223372036854775807 and Currency 922337203685477.5807 returned blank MAX/SUM. One storage unit inward and 2047 units inward returned exact MAX/SUM. Minimum-plus-one and inward variants returned exact MIN/SUM. Counts were 3. Failures are isolated signed64 endpoints; broad range is not rejected.",
+      "aggregation": "supported inward boundaries pass; exact maximum endpoints fail",
+      "save": "not performed"
+    },
+    {
+      "fixture": "work/sql-refresh/api-live-sql-credentialed-TEMP.xlsx",
+      "sha256_before_refresh": "b847d19823d6e4976a141daa03739c4e56d93b53cd5f1a35d169ea83a6d265af",
+      "load": "pass",
+      "observed": "Cached ID1/2/3, labels Cached A/B/C and Amount1/2/3 loaded.",
+      "refresh": "fail",
+      "blocker": "After human supplied password, Excel reported generic connection-refresh failure; cached rows unchanged. Existing Connections editor shows correct server/database and SQL authentication, but empty username/password and unchecked Save my password.",
+      "direct_provider_query": "pass; Windows SQLOLEDB queried synthetic SQL Server rows101/202/303",
+      "reopen": "pending",
+      "disposition": "Authentication UI left to human; disposable v2 savePassword hypothesis remains untested. Production source credentials guard unchanged.",
+      "credential_diagnostic": "Encrypted fixture password matches synthetic secret. Direct Windows SQLOLEDB query still returns total75.0000. No login rejection in server logs. In-memory trace enabled after failure; no subsequent Excel events captured yet."
+    },
+    {
+      "fixture": "work/sql-refresh/api-live-sql-dsv-v3-TEMP.xlsx",
+      "sha256_after_save": "e38d667e975022898316a0eb809f5ffb26de09e24d56b28d3fc6778fdc6f2c0d",
+      "load": "pass",
+      "refresh": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "method": "Isolated Excel COM documented OLEDBConnection.Connection set to synthetic credentials, WorkbookConnection.Refresh, Save, Close; reopen Model.Initialize and ModelConnection.ADOConnection.Execute DAX. No UI automation.",
+      "observed": "Rows3, IDs101/202/303, SQL Alpha/Beta/Gamma, Amount12.5/25/37.5; native DAX Amount Total75,MinID101,MaxID303",
+      "scope": "Experimental single-source cube DataSourceViewBinding patch; production shared-view fix pending. Credentialed temporary fixture, not distributable."
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-empty-add-column-table0",
+      "fixture": "compatibility-suite/api-empty-add-column.xlsx",
+      "sha256_before": "738524284d999ee7b14eb69e0558de87144e444c1b3fb5caadb17ad0fade7dff",
+      "sha256_after_save": "c20771c816d65e23e5efe349bb551aef91c9bc8e66ae9b3750e16d3df2149316",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-empty-add-column-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-empty-add-column-table0.json",
+      "sha256_evidence": "97fe3271b782ce47e8a22142f9ce95b3830a1f3ef29a2ee58cf4475f762a8171",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Empty table'",
+      "row_count": 0,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-empty-add-column-populated-table0",
+      "fixture": "compatibility-suite/api-empty-add-column-populated.xlsx",
+      "sha256_before": "eaab696a8817ff88a41074d0372745661213225e3784526ce3e56a9a97fa76e4",
+      "sha256_after_save": "7e31d70be16fe0f8e5d2ae1bca546956e0402fa1e5e98f96d771cc7fb94f5335",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-empty-add-column-populated-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-empty-add-column-populated-table0.json",
+      "sha256_evidence": "a2eeb0d40231e64c63d4b557c3d5fecdb36013f16625c24a5b19419eeb1f7936",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Empty table'",
+      "row_count": 2,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-unicode-public-table0",
+      "fixture": "compatibility-suite/api-unicode-public.xlsx",
+      "sha256_before": "8f4cc3732112c65d0bce9cf44f28b798b4104bbe1781173fc61dddef2bbc9ce9",
+      "sha256_after_save": "7d9b68f4e6c88b5a6aaa37bde5939e067f70c99a4e1524d7ec00cd31ac0304e8",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-unicode-public-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-unicode-public-table0.json",
+      "sha256_evidence": "d128f8005ac4de578d4c6c78cc5bdf7cc7c1b0444897be946670700485eaba7f",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Unicode'",
+      "row_count": 6,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-unicode-relationships-table0",
+      "fixture": "compatibility-suite/api-unicode-relationships.xlsx",
+      "sha256_before": "83c6ec11b4ca7cd5c2c315b62baaf9b3a49cd902f8f99a79e85241319117c96c",
+      "sha256_after_save": "385e5f7975f2126d11a4a67208e35c17adca4c52db8b2cc7b4321bfb3becb863",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-unicode-relationships-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-unicode-relationships-table0.json",
+      "sha256_evidence": "22c5a44a517b4bc8ad5abcd82c4f5ffc0e310a81f00473583a507455f9b50e44",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Lookup'",
+      "row_count": 2,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)",
+      "scope": "Unicode table rows accepted; table queries alone do not certify relationship navigation semantics."
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-unicode-relationships-table1",
+      "fixture": "compatibility-suite/api-unicode-relationships.xlsx",
+      "sha256_before": "83c6ec11b4ca7cd5c2c315b62baaf9b3a49cd902f8f99a79e85241319117c96c",
+      "sha256_after_save": "81e951876b23b6512201a0437edb2a6742188b595379ad57c4a36ddeb4bd3bf5",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-unicode-relationships-table1-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-unicode-relationships-table1.json",
+      "sha256_evidence": "8337fe72aa74f4da1c61f472711e5132a28cd3bee682c9d2a0bf1d310ab9b469",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Facts'",
+      "row_count": 2,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)",
+      "scope": "Unicode table rows accepted; table queries alone do not certify relationship navigation semantics."
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-multipage-strings-table0",
+      "fixture": "compatibility-suite/api-multipage-strings.xlsx",
+      "sha256_before": "a076b18758930d7143d876046a67e2e30c58696b3754caf3dca4030eecf507f7",
+      "sha256_after_save": "ef8a4a29bdd4f18975e8ca46626f0cff1856f2361e1bb05d813d82b50e14c673",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-multipage-strings-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-multipage-strings-table0.json",
+      "sha256_evidence": "5c3ce7461f2b9eb1dcd6946f2378e86e8c45cd468bd77760ecea39ac419a288a",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'TextPages'",
+      "row_count": 2000,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-promoted-numeric-table0",
+      "fixture": "compatibility-suite/api-promoted-numeric.xlsx",
+      "sha256_before": "fc2510a36e74ae74ce3c345ae1025be2e8db5ca90376c4abb4acac921f4a48a7",
+      "sha256_after_save": "37ced10a83785ae593d5b6e6d0917f1b22dd0a2e641d0633e3ae5677dbbbb5d8",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-promoted-numeric-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-promoted-numeric-table0.json",
+      "sha256_evidence": "4a2de5d0709fb2f41b37476b6e7a4cadb8d29cc499a00ee475e093fec80ffca1",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Numbers'",
+      "row_count": 3,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)",
+      "scope": "Promoted stored data roundtrip accepted; fixture contains legacy maximum endpoint now rejected during authoring. No endpoint aggregate acceptance inferred."
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-perspective-two-hierarchies-table0",
+      "fixture": "compatibility-suite/api-perspective-two-hierarchies.xlsx",
+      "sha256_before": "188427f4ce09a44c8a68979263111ee0dd2d6f706c7c38c4ff74489a8ae44816",
+      "sha256_after_save": "6e2b028adedf24cec7a47e2a5e0ebf19fe89ddc72203537b72a56edc9db462ce",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-perspective-two-hierarchies-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-perspective-two-hierarchies-table0.json",
+      "sha256_evidence": "47fd489aec2d308c1822f842533dafbf0cd3195430ab4e08c0ceb310aa5d1c90",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Places'",
+      "row_count": 3,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)",
+      "scope": "Table query/save/reopen only; no acceptance of perspective hierarchy selections inferred."
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-wide-double-v2-table0",
+      "fixture": "compatibility-suite/api-wide-double-v2.xlsx",
+      "sha256_before": "0cfeca01058fffb6e10343d0f6979da9e834d09d2a25087d2e9a05afc751696f",
+      "sha256_after_save": "1bf50d6d6eebee261657ffed7c0394cccf9d7946d38bfbcdd2416783790d6f0a",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-wide-double-v2-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-wide-double-v2-table0.json",
+      "sha256_evidence": "1c79d4dc9bcd1b0d8e8c2f507ebc19ddda5c4334e2bde4ebcbce126890625f71",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Numbers'",
+      "row_count": 3,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "stored-com-v2-20261108",
+      "case": "api-linked-table-bound-2026-11-08-table0",
+      "fixture": "compatibility-suite/api-linked-table-bound-2026-11-08.xlsx",
+      "sha256_before": "55613b0ed17f13458ba0e9cf83bb826fc4d891aaa5aa5d7a07082c0610a3be90",
+      "sha256_after_save": "3212a57da85799b439f5f5628a3e4f98b07382471937f1c589d1e415414df9be",
+      "saved_workbook": "work/native-stored-results-v2-20261108/api-linked-table-bound-2026-11-08-table0-native-saved.xlsx",
+      "evidence": "work/native-stored-results-v2-20261108/api-linked-table-bound-2026-11-08-table0.json",
+      "sha256_evidence": "a651d66830685968f03344a56379fc1672e18a3b0a68222d19ca5b53fae4a4d2",
+      "method": "Separate owned Excel.Application; direct ADO DAX table query, save, close, reopen, repeat query; corrected complete COM reference release",
+      "query": "EVALUATE 'Table1'",
+      "row_count": 3,
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass; every table equals source using pandas assert_frame_equal (dtype differences allowed)"
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "measure-removed-total",
+      "fixture": "work/native-feature-inputs/measure-removed.xlsx",
+      "sha256_before": "4dff85100d56406b3070060f3ab98f47ceeba3a453240df4faa4671b1a54e165",
+      "evidence": "work/native-feature-results-20261108/measure-removed-total.json",
+      "sha256_evidence": "46287afa8b6902c0e7325ea894149f594bdac3a79bf4d4dece65242f76b33290",
+      "query": "EVALUATE ROW(\"Total\",[Total])",
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "sha256_after_save": "3c017dd63550f191b878f5892cb168b4b96af4b63a02d75bc52ebb2f9dda2f20",
+      "saved_workbook": "work/native-feature-results-20261108/measure-removed-total-native-saved.xlsx",
+      "observed": [
+        [
+          90
+        ]
+      ]
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "measure-removed-metadata",
+      "fixture": "work/native-feature-inputs/measure-removed.xlsx",
+      "sha256_before": "4dff85100d56406b3070060f3ab98f47ceeba3a453240df4faa4671b1a54e165",
+      "evidence": "work/native-feature-results-20261108/measure-removed-metadata.json",
+      "sha256_evidence": "bb90d6401b2bd362c0ea7eab03c2983777d26ebbd468fa0b3ef115105de24d19",
+      "query": "SELECT [MEASURE_NAME] FROM $SYSTEM.MDSCHEMA_MEASURES",
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "sha256_after_save": "392b5676ba2ec2de88c199476825b6491b5b1778465a90918b6eaf8e6e0e5faa",
+      "saved_workbook": "work/native-feature-results-20261108/measure-removed-metadata-native-saved.xlsx",
+      "observed": [
+        [
+          "Sales"
+        ],
+        [
+          "__XL_Count _ModelTable_fecc88a2ba114947a1b3ac21e047a505"
+        ],
+        [
+          "__No measures defined"
+        ],
+        [
+          "Total"
+        ]
+      ]
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "unicode-relationship-filter",
+      "fixture": "outputs/excel-model-lab/compatibility-suite/api-unicode-relationships.xlsx",
+      "sha256_before": "83c6ec11b4ca7cd5c2c315b62baaf9b3a49cd902f8f99a79e85241319117c96c",
+      "evidence": "work/native-feature-results-20261108/unicode-relationship-filter.json",
+      "sha256_evidence": "f1b2d1dec10996c456bbfd9a78d0e86452adf9f361c81a3a3b0f14a43df9d82a",
+      "query": "EVALUATE SUMMARIZE('Lookup','Lookup'[Key],\"Amount\",CALCULATE(SUM('Facts'[Amount])))",
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "sha256_after_save": "cec036779567719196ba9f33db76ca8960dc385766765267c2abafe3c559bac2",
+      "saved_workbook": "work/native-feature-results-20261108/unicode-relationship-filter-native-saved.xlsx",
+      "observed": [
+        [
+          "caf\u00e9",
+          10
+        ],
+        [
+          "\u6771\u4eac",
+          20
+        ]
+      ]
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "perspective-hierarchies",
+      "fixture": "outputs/excel-model-lab/compatibility-suite/api-perspective-two-hierarchies.xlsx",
+      "sha256_before": "188427f4ce09a44c8a68979263111ee0dd2d6f706c7c38c4ff74489a8ae44816",
+      "evidence": "work/native-feature-results-20261108/perspective-hierarchies.json",
+      "sha256_evidence": "8a037e7732a87c39d7bbecfe91ffb3fcc9d88a4de647d9d0a66801383fbdb0a1",
+      "query": "SELECT [CUBE_NAME], [DIMENSION_UNIQUE_NAME], [HIERARCHY_NAME] FROM $SYSTEM.MDSCHEMA_HIERARCHIES",
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "sha256_after_save": "88e1f215f89d91cab3a579a6dbc3c4da9026738d5141c1732194bad2b13c5d64",
+      "saved_workbook": "work/native-feature-results-20261108/perspective-hierarchies-native-saved.xlsx",
+      "observed": [
+        [
+          "$Places",
+          "[Measures]",
+          "Measures"
+        ],
+        [
+          "$Places",
+          "[Places]",
+          "City"
+        ],
+        [
+          "$Places",
+          "[Places]",
+          "Code"
+        ],
+        [
+          "$Places",
+          "[Places]",
+          "Codes"
+        ],
+        [
+          "$Places",
+          "[Places]",
+          "Country"
+        ],
+        [
+          "$Places",
+          "[Places]",
+          "Geography"
+        ],
+        [
+          "Both Hierarchies",
+          "[Measures]",
+          "Measures"
+        ],
+        [
+          "Both Hierarchies",
+          "[Places]",
+          "City"
+        ],
+        [
+          "Both Hierarchies",
+          "[Places]",
+          "Code"
+        ],
+        [
+          "Both Hierarchies",
+          "[Places]",
+          "Codes"
+        ],
+        [
+          "Both Hierarchies",
+          "[Places]",
+          "Country"
+        ],
+        [
+          "Both Hierarchies",
+          "[Places]",
+          "Geography"
+        ],
+        [
+          "Locations",
+          "[Measures]",
+          "Measures"
+        ],
+        [
+          "Locations",
+          "[Places]",
+          "City"
+        ],
+        [
+          "Locations",
+          "[Places]",
+          "Code"
+        ],
+        [
+          "Locations",
+          "[Places]",
+          "Codes"
+        ],
+        [
+          "Locations",
+          "[Places]",
+          "Country"
+        ],
+        [
+          "Locations",
+          "[Places]",
+          "Geography"
+        ],
+        [
+          "Model",
+          "[Measures]",
+          "Measures"
+        ],
+        [
+          "Model",
+          "[Places]",
+          "City"
+        ],
+        [
+          "Model",
+          "[Places]",
+          "Code"
+        ],
+        [
+          "Model",
+          "[Places]",
+          "Codes"
+        ],
+        [
+          "Model",
+          "[Places]",
+          "Country"
+        ],
+        [
+          "Model",
+          "[Places]",
+          "Geography"
+        ]
+      ]
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "date-marked",
+      "fixture": "work/native-feature-inputs/date-marked.xlsx",
+      "sha256_before": "c8604d0e4fce5910a1bd28bad3caf46409921617088452b4278067f99036d8d5",
+      "evidence": "work/native-feature-results-20261108/date-marked.json",
+      "sha256_evidence": "87b8b33db76f9f3116ba35fee726aa250a70cf58ee7cec05aee2b2d388999d14",
+      "query": "EVALUATE ROW(\"Rows\",COUNTROWS('Calendar'),\"Days\",SUM('Calendar'[Day]))",
+      "result": "failed attempt; stage unrecorded",
+      "error": "Exception from HRESULT: 0xC113000A",
+      "load": "unverified",
+      "save": "unverified",
+      "reopen": "unverified",
+      "scope": "No date-marked feature acceptance or feature defect inferred until failure stage is isolated."
+    },
+    {
+      "batch": "features-com-20261108",
+      "case": "date-unmarked",
+      "fixture": "work/native-feature-inputs/date-unmarked.xlsx",
+      "sha256_before": "d4eaabe4323cda0bf81921e9645f9d2802e1d6e8c96e6dfdd4de6a6903612a69",
+      "evidence": "work/native-feature-results-20261108/date-unmarked.json",
+      "sha256_evidence": "6bbd1528f3d89d420db4302769fc7c4e214c53c0192ac6ed61a2cb1ae5616d9b",
+      "query": "EVALUATE ROW(\"Rows\",COUNTROWS('Calendar'),\"Days\",SUM('Calendar'[Day]))",
+      "load": "pass",
+      "query_result_stable_after_reopen": true,
+      "save": "pass",
+      "reopen": "pass",
+      "sha256_after_save": "a4f4e58223d387aa37ba114438f4587014b8cfbbebba9c267c4be6be700142f0",
+      "saved_workbook": "work/native-feature-results-20261108/date-unmarked-native-saved.xlsx",
+      "observed": [
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "fixture": "work/native-scale-perspective-results-20261108/perspective-renamed-native-saved.xlsx",
+      "sha256_after_save": "92924e580126f1112d562b8ad9eb37f4f83e228d5e15fb07de811c215bddc3c9",
+      "evidence": "work/native-scale-perspective-results-20261108/perspective-renamed.json",
+      "evidence_sha256": "3958b1890207e2b40e2ce3e3e12c2d981d46a057e124c2b9f6d4fb873c53ed85",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "observed": "Native cubes include Reporting and exclude Finance. Saved metadata retains Amount and Detail in the renamed perspective."
+    },
+    {
+      "fixture": "work/native-scale-perspective-results-20261108/perspective-updated-native-saved.xlsx",
+      "sha256_after_save": "c69f550499c66c8b2054a79b99ce822c68ca642d700fb08d55d44b8076f3aa07",
+      "evidence": "work/native-scale-perspective-results-20261108/perspective-updated.json",
+      "evidence_sha256": "82f46bbed5f552c39f21dc12e472d805ac8a7c60cd825153af46d42c8c01cf93",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "observed": "Native cubes retain Reporting. Saved metadata selects Key only, with no hierarchy or measure selections."
+    },
+    {
+      "fixture": "work/native-scale-perspective-results-20261108/perspective-removed-native-saved.xlsx",
+      "sha256_after_save": "8ff204dfa0490f7d0b2be5530e2e6eaf02c249013b8bbe967bc68f2b2ba28ec2",
+      "evidence": "work/native-scale-perspective-results-20261108/perspective-removed.json",
+      "evidence_sha256": "bef81e8036a792ebb10a5fb8d1d87ffde8d7f380e3be85c297a3f1befcf03c9e",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "observed": "Native cubes omit Reporting; saved reader metadata has no perspectives."
+    },
+    {
+      "fixture": "work/native-scale-perspective-results-20261108/kpi-native-definitions-native-saved.xlsx",
+      "sha256_after_save": "b0384989ef06f8d190e690496c13555385dde525fc46c6ea2dd5f590d2f86e23",
+      "evidence": "work/native-scale-perspective-results-20261108/kpi-native-definitions.json",
+      "evidence_sha256": "ea1a055008299db1ae10bbe54af7ecf7d59a813d0d7ef6019d846cf95a2d0033",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "observed": "Native MDSCHEMA_KPIS recognizes all five KPIs and expected status graphics: Road Signs, Shapes, Gauge - Ascending (two), Traffic Light. Definitions survive save/reopen; UI rendering/layout not covered."
+    },
+    {
+      "fixture": "work/million-row-storage.xlsx",
+      "evidence": "work/native-scale-perspective-results-20261108/million-row-storage.json",
+      "load": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "query": "failed_expected_value",
+      "observed": "COUNTROWS=1000000 and ID sum=499999500000 correct, but Group DISTINCTCOUNT=103 instead of expected100 before and after reopen. Native scale acceptance pending storage cardinality fix."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-grown-native-saved.xlsx",
+      "sha256_after_save": "9b5bff9d19504469a86f13a5792a467759e3b90e2cccd182b32f15bf4155c3c5",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-grown.json",
+      "evidence_sha256": "31fc1880387349f63ff5807213a079b844fa366c52950de87b44890c1f57c65c",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Table1[Doubled]=[20, 40, 60, 80]."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-shrunk-native-saved.xlsx",
+      "sha256_after_save": "6e7cdbdf3a4730fe7bafef8bf17739cd1710e8ad1d251b07811339267725d593",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-shrunk.json",
+      "evidence_sha256": "94475f1f61ec9d4c2bb2ccac4f9ffcd7c80f8a1afe158499f7e642e8ccb39a79",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Table1[Doubled]=[14]."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-repopulated-native-saved.xlsx",
+      "sha256_after_save": "d6b7d686f320938f472ef0cdb0258e529cae7310f725f0b6e24c0724feb691cc",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-repopulated.json",
+      "evidence_sha256": "49a615cbec4dfa49fc703e6c7018f48fdd9f7cc4c214a2c158663e95c3b65e28",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Table1[Doubled]=[8, 10, 12]."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-updated-native-saved.xlsx",
+      "sha256_after_save": "6ec21f34a931f50ecd5801dc13c58ba754917c1d78717433d5b6ab6e538ca62f",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-updated.json",
+      "evidence_sha256": "d38c5d3fa27ebdd89c8fa864cae1f14f3c521893150b20b5f738084246e2f894",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Table1[Doubled]=[3, 6, 9]."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-hierarchy-pending-native-saved.xlsx",
+      "sha256_after_save": "46935e12e0c70a5cc58d81c090156e817a2ec3885557359afabccbcbe74309b3",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-hierarchy-pending.json",
+      "evidence_sha256": "56e733b58611d1a9b10cb053574bd97ff21305d3a77f1125837f8186f1e85c82",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Sales[Band]=['High', 'Low', 'High']. This verifies column values; native member ordering/grouping is checked separately."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-sort-pending-native-saved.xlsx",
+      "sha256_after_save": "c6f3f9f9a4df90deac32904500fe99c7d70e579f34d31e68f2137f9541b6fb89",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-sort-pending.json",
+      "evidence_sha256": "2b220bf858e675d9cedfb37bb5977c9d7f0fb4db9072262571053cc30d4e466b",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Sales[Rank]=[2, 1, 2]. This verifies column values; native member ordering/grouping is checked separately."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-combined-structural-rename-2026-11-08-native-saved.xlsx",
+      "sha256_after_save": "6e90f00e1df41ff8c98bb22829e9b1d063918fb8ec39d5ca95876772c9629119",
+      "evidence": "work/native-calculated-edit-results-20261108/api-combined-structural-rename-2026-11-08.json",
+      "evidence_sha256": "9baba58f5a283bc95f437392146a09f34cb76ff2d7d2c9a1f11436c639616583",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Sales Data[Double Amount]=[20, 40, 60]."
+    },
+    {
+      "fixture": "work/native-calculated-edit-results-20261108/api-calculated-removed-native-saved.xlsx",
+      "sha256_after_save": "365bc76046f672aa4094506e72c4550bd739c6609ed5c10d0467e82aad291602",
+      "evidence": "work/native-calculated-edit-results-20261108/api-calculated-removed.json",
+      "evidence_sha256": "7c4f90f1c5153508d65a9dda61864f9f60a7d5fd8a5652cae514e272700cf007",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Native query/save/reopen and Python readback confirmed Table1[ID]=[1, 2, 3]."
+    },
+    {
+      "fixture": "work/sql-refresh/api-live-sql-production-multi.xlsx",
+      "sha256_after_save": "e8abf18283f895014ff7b05b38d2cb97114df50a2bc13055bb1ff6f26f1f6abb",
+      "load": "pass",
+      "refresh": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "native_dax": {
+        "FirstRows": 3,
+        "FirstTotal": 75,
+        "FirstMin": 101,
+        "SecondRows": 3,
+        "SecondTotal": 150,
+        "SecondMin": 1101
+      },
+      "method": "Production writer; isolated Excel documented OLEDBConnection credentials set for all sources before refresh; native save/close/reopen; direct ADO DAX; exact Python readback.",
+      "operation": "multi",
+      "scope": "Synthetic local SQLOLEDB SQL Server; temporary files may contain synthetic credentials; not distributable."
+    },
+    {
+      "fixture": "work/sql-refresh/api-live-sql-production-rebound.xlsx",
+      "sha256_after_save": "b2ab00985507b612e164087e8368b8b598aaf2b9a60f686883fd2f8e8b49bdb6",
+      "load": "pass",
+      "refresh": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "native_dax": {
+        "FirstRows": 3,
+        "FirstTotal": 75,
+        "FirstMin": 101,
+        "SecondRows": 3,
+        "SecondTotal": 225,
+        "SecondMin": 2101
+      },
+      "method": "Production writer; isolated Excel documented OLEDBConnection credentials set for all sources before refresh; native save/close/reopen; direct ADO DAX; exact Python readback.",
+      "operation": "rebound",
+      "scope": "Synthetic local SQLOLEDB SQL Server; temporary files may contain synthetic credentials; not distributable."
+    },
+    {
+      "fixture": "work/sql-refresh/api-live-sql-production-detached.xlsx",
+      "sha256_after_save": "7582ab4a48f6990fe4ac4219886d2b9c79b8b435e1609a242855eecece0d1a35",
+      "load": "pass",
+      "refresh": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "native_dax": {
+        "FirstRows": 3,
+        "FirstTotal": 75,
+        "FirstMin": 101,
+        "SecondRows": 3,
+        "SecondTotal": 225,
+        "SecondMin": 2101
+      },
+      "method": "Production writer; isolated Excel documented OLEDBConnection credentials set for all sources before refresh; native save/close/reopen; direct ADO DAX; exact Python readback.",
+      "operation": "detached",
+      "scope": "Synthetic local SQLOLEDB SQL Server; temporary files may contain synthetic credentials; not distributable."
+    },
+    {
+      "fixture": "work/native-explicit-zero-member-results-20261108/calculated-explicit-types-native-saved.xlsx",
+      "sha256_after_save": "840187dfb73f48b1e63f1e048c494c6edced71ae564125f74b469e876de3e062",
+      "load": "pass",
+      "operation": "Native temporary-measure processing and six explicit type query",
+      "observed": {
+        "columns": [
+          "Sales[ID]",
+          "Sales[Amount]",
+          "Sales[Label]",
+          "Sales[Tripled]",
+          "Sales[Half]",
+          "Sales[Quarter Currency]",
+          "Sales[Next Date]",
+          "Sales[Large]",
+          "Sales[Caption]"
+        ],
+        "rows": [
+          [
+            1,
+            20,
+            "Alpha",
+            60,
+            10,
+            5,
+            "/Date(1767254400000)/",
+            false,
+            "Alpha!"
+          ],
+          [
+            2,
+            30,
+            "Beta",
+            90,
+            15,
+            7.5,
+            "/Date(1767340800000)/",
+            true,
+            "Beta!"
+          ],
+          [
+            3,
+            40,
+            "Gamma",
+            120,
+            20,
+            10,
+            "/Date(1767427200000)/",
+            true,
+            "Gamma!"
+          ]
+        ]
+      },
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "six native types and exact values verified",
+      "evidence": "work/native-explicit-zero-member-results-20261108/calculated-explicit-types.json"
+    },
+    {
+      "fixture": "work/native-explicit-zero-member-results-20261108/api-calculated-sort-pending-members-native-saved.xlsx",
+      "sha256_after_save": "a6bf00e13757c3766eb941159e64b5af53bc0f09766066eb508e260c18630b05",
+      "load": "pass",
+      "operation": "Native MDX member/index query",
+      "observed": {
+        "columns": [
+          "HIERARCHY_UNIQUE_NAME",
+          "LEVEL_NUMBER",
+          "MEMBER_CAPTION",
+          "MEMBER_ORDINAL"
+        ],
+        "rows": [
+          [
+            "[Sales].[Band]",
+            0,
+            "All",
+            0
+          ],
+          [
+            "[Sales].[Band]",
+            1,
+            "Low",
+            0
+          ],
+          [
+            "[Sales].[Band]",
+            1,
+            "High",
+            0
+          ]
+        ]
+      },
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "native query matched after reopen",
+      "evidence": "work/native-explicit-zero-member-results-20261108/api-calculated-sort-pending-members.json"
+    },
+    {
+      "fixture": "work/native-explicit-zero-member-results-20261108/api-calculated-hierarchy-pending-members-native-saved.xlsx",
+      "sha256_after_save": "e2d7591a571a8d51e199054bdffdba68365cc13ad9481e8b3f94bdfe558d142f",
+      "load": "pass",
+      "operation": "Native MDX member/index query",
+      "observed": {
+        "columns": [
+          "HIERARCHY_UNIQUE_NAME",
+          "LEVEL_NUMBER",
+          "MEMBER_CAPTION",
+          "MEMBER_ORDINAL"
+        ],
+        "rows": [
+          [
+            "[Sales].[Band Detail]",
+            0,
+            "All",
+            0
+          ],
+          [
+            "[Sales].[Band Detail]",
+            1,
+            "High",
+            0
+          ],
+          [
+            "[Sales].[Band Detail]",
+            1,
+            "Low",
+            0
+          ],
+          [
+            "[Sales].[Band Detail]",
+            2,
+            "30",
+            0
+          ],
+          [
+            "[Sales].[Band Detail]",
+            2,
+            "40",
+            0
+          ],
+          [
+            "[Sales].[Band Detail]",
+            2,
+            "10",
+            0
+          ]
+        ]
+      },
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "native query matched after reopen",
+      "evidence": "work/native-explicit-zero-member-results-20261108/api-calculated-hierarchy-pending-members.json"
+    },
+    {
+      "fixture": "work/calculated-empty-production.xlsx",
+      "sha256_after_save": "9bf40ef3ece9d8275e8dffa93f57be5470fe3022b25f795ccadca87427e8adde",
+      "saved_workbook": "work/root-zero-sort-results-20261108/calculated-empty-production-native-saved.xlsx",
+      "evidence": "work/root-zero-sort-results-20261108/calculated-empty-production.json",
+      "evidence_sha256": "7c9acc80e1ea5c883a23c332714277fec1e069a016add6c5c1565e2ea581741c",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Production zero-row calculated cache fix: native temporary measure edit processes model, query/save/reopen retains zero rows and ID/Label/Doubled columns; Python shape (0,3). Three regression cases cover integer,text,boolean clearing and repopulation."
+    },
+    {
+      "fixture": "work\\date-key-production.xlsx",
+      "sha256_after_save": "882f98d7439d5c851f00a9b7a8e6473db5ee9b4cab1bb1e0696eb96e68b5221a",
+      "load": "pass",
+      "operation": "Production date key designation, native temporary measure processing, save and fresh-process reopen",
+      "observed": {
+        "Rows": 3,
+        "DaySum": 6,
+        "FirstDate": "2026-01-01"
+      },
+      "save": "pass",
+      "reopen": "pass (independent new Excel instance)",
+      "reader_readback": "pass exact three dates and Day values",
+      "note": "Owning degenerate measure-group granularity now follows date key. Initial same-process reopen retained deleted measure COM reference and failed; independent fresh-process reopen proves saved model validity.",
+      "tests": "23 combined source/date tests passed; nine date tests include mark, switch key, unmark and physical ID/caption."
+    },
+    {
+      "fixture": "work\\calc-date-key-prototype.xlsx",
+      "sha256_before_native": "a6dc5e8add66b0cb20aa8b8528c6955d610e2388ce3d5541841b5b6ace389f0d",
+      "operation": "Diagnostic promotion of processed calculated DATE(2026,1,[DayNumber]) to table key",
+      "processing": "failed: native circular dependency Calendar[CalculatedDate] -> Calendar[CalculatedDate]",
+      "save_reopen": "not accepted",
+      "baseline": "Calculated values processed and saved/reopened Jan1/2/3 2026 before designation",
+      "evidence": "work/calc-date-key-results/calculated-date-key.json",
+      "production": "Calculated date-key guard retained with explicit structured public error; no guessed validity for unprocessed DAX.",
+      "scope": "Demonstrates unsupported same-table computed date-key combination; not a claim every DAX date key is forbidden by every Excel version."
+    },
+    {
+      "fixture": "work/stored-sort-production-results/stored-sort-production-native-saved.xlsx",
+      "sha256_after_save": "b12703c2ff097e24cc31f9c7e25fc43254475b3e3143e139a276aa91655d264d",
+      "evidence": "work/stored-sort-production-results/stored-sort-production.json",
+      "evidence_sha256": "21dfef32b246df86e4bca66f2e267119cfb9e123a5cf0526f80fa38dd231463a",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Public API stored Band sorted by calculated Rank, including dependent Detail hierarchy. Native member traversal ['All', 'Low', 'High', '10', '30', '40']; changed source values trigger rebuilt sort order. Python Amount=[40, 10, 30], Rank=[2, 1, 2]."
+    },
+    {
+      "fixture": "work/stored-sort-production-results/stored-sort-production-changed-native-saved.xlsx",
+      "sha256_after_save": "9509a6911012cd22091e82137a7935f4b2a09ef2feb630c67b8ae045d75d9faf",
+      "evidence": "work/stored-sort-production-results/stored-sort-production-changed.json",
+      "evidence_sha256": "96b6275476de70a02e83ab8620fb43241b192dd8dc9664fd808bf2ecc6a6b253",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Public API stored Band sorted by calculated Rank, including dependent Detail hierarchy. Native member traversal ['All', 'High', 'Low', '5', '10', '40']; changed source values trigger rebuilt sort order. Python Amount=[5, 40, 10], Rank=[1, 2, 1]."
+    },
+    {
+      "fixture": "work/native-calcrel-public-results/calculated-relationship-public-created-native-saved.xlsx",
+      "sha256_after_save": "e5918109b330d8cbeab4cd50016485d637e41d842bce8b248173c669f67c470e",
+      "evidence": "work/native-calcrel-public-results/calculated-relationship-public-created.json",
+      "evidence_sha256": "5eb598efa90c079e947b495db20b660ebeb25cdee099d7af3e7ed07621adb15e",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Public calculated-key relationship creation/edit rebuilds native filtering: [['Alpha', 40], ['Beta', 20], ['Gamma', 40]]. Pending calculated-key uniqueness validation explicitly deferred to Excel; known-key validation remains immediate."
+    },
+    {
+      "fixture": "work/native-calcrel-public-results/calculated-relationship-public-edited-native-saved.xlsx",
+      "sha256_after_save": "d51bf61fe6584c4783e2d4b49c6c10da1f7597965c8b704d2d58a862ec0d914a",
+      "evidence": "work/native-calcrel-public-results/calculated-relationship-public-edited.json",
+      "evidence_sha256": "831976bc5acab73cbcd99eb98323b8be12c8c773af442366a9b5569102b18e5f",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Public calculated-key relationship creation/edit rebuilds native filtering: [['Beta', 60], ['Gamma', 40]]. Pending calculated-key uniqueness validation explicitly deferred to Excel; known-key validation remains immediate."
+    },
+    {
+      "fixture": "work/nullable-fixed-integer.xlsx",
+      "sha256": "8a4ff666d767b59df0087da29345d8e2e4c011edd07c68570873becc117412f8",
+      "saved_workbook": "work/nullable-fixed-results/integer-native-saved.xlsx",
+      "sha256_after_save": "dd1693ebd0a92f3274efbc229e820eaa7aff1d80ddfc155d317119cb266fd33e",
+      "evidence": "work/nullable-fixed-results/integer.json",
+      "evidence_sha256": "60cdcc0ab4215f5b62d8ad40adc5ecd3e289b3c9fab3d0d8c5116eb0e2fd67ab",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-integer-allnull.xlsx",
+      "sha256": "d681091ad91851e8f209f15bb776e61b9b78c5dab10d7490acc6a6188739b8ed",
+      "saved_workbook": "work/nullable-fixed-results/integer-allnull-native-saved.xlsx",
+      "sha256_after_save": "eb56fdfa6bc261e05f8e20d9773991b7dadad0537ef0b697cdccc0b5c7170f17",
+      "evidence": "work/nullable-fixed-results/integer-allnull.json",
+      "evidence_sha256": "afc208e63f9004c9c148c3d8e512a522fb33535fd3ff19294c443ebe9c71078a",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-integer-repopulated.xlsx",
+      "sha256": "77743bb05ce1cb20b1edba4d2480d16ad66237bc0e196095f253be6dbb2bf050",
+      "saved_workbook": "work/nullable-fixed-results/integer-repopulated-native-saved.xlsx",
+      "sha256_after_save": "d052cdbb559d98a1f25854801d0a080422dc46cce1679ac9bd7ce329a4a8972a",
+      "evidence": "work/nullable-fixed-results/integer-repopulated.json",
+      "evidence_sha256": "65246aa464bc45e4f342e13b0c7fbb902c0099048c1ea2070b5212ef6496448a",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-currency.xlsx",
+      "sha256": "d0dab3ed078cb8079f9b5a790ee1d9c8ddf69ef31742d49bb77478cbd4838829",
+      "saved_workbook": "work/nullable-fixed-results/currency-native-saved.xlsx",
+      "sha256_after_save": "194772de5bd208a7b6f8969de938af0df6a888f0c5f3b0670c46d29e4e506e17",
+      "evidence": "work/nullable-fixed-results/currency.json",
+      "evidence_sha256": "ec0c9f69c5adc07b7c76b0c8b1fb69c59908e2b9e4e2acde942381d2828a02c4",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-currency-allnull.xlsx",
+      "sha256": "0b57a76e67e5096e0102d01e49a1ce080d14048d0ce97ac71b7b8c63ecdd345a",
+      "saved_workbook": "work/nullable-fixed-results/currency-allnull-native-saved.xlsx",
+      "sha256_after_save": "d3c7f14253c450ef7d75f7d0014d54bdd02558d688521c41bf0f220b4f412aa1",
+      "evidence": "work/nullable-fixed-results/currency-allnull.json",
+      "evidence_sha256": "dde05698a02f5660263b0c4031e2f520ab11f571c46f6cbb91574c929f19ef8c",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-currency-repopulated.xlsx",
+      "sha256": "5e8d27cb293f5c4c5445114325af7497aae3a27b240511be3b21458a247ac1dd",
+      "saved_workbook": "work/nullable-fixed-results/currency-repopulated-native-saved.xlsx",
+      "sha256_after_save": "a683f961479076bef6cc8cef7c4b0b3883fb61c27156a00ca92aff3ee847b7da",
+      "evidence": "work/nullable-fixed-results/currency-repopulated.json",
+      "evidence_sha256": "ac2a2b82c3ba99ad6eae1d1bb8c36d8353e5135c2231c808fd298f524232df3f",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-decimal.xlsx",
+      "sha256": "03af9b7c3543cdbfbbe0fea913991e1630c4c5112811a81d50d19da5196b1745",
+      "saved_workbook": "work/nullable-fixed-results/decimal-native-saved.xlsx",
+      "sha256_after_save": "cf67941802eafb53383dd7189f9f1240646c4f095f276b93bbf2f53fe19621ed",
+      "evidence": "work/nullable-fixed-results/decimal.json",
+      "evidence_sha256": "770a29516b9db769a1bf63bbe711b6df4033d284397bb30d0648df89bbca3ed6",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-decimal-allnull.xlsx",
+      "sha256": "b27abf68a272591e23b00d386f46ae4e58c258d68f6343263a4a68fb493badea",
+      "saved_workbook": "work/nullable-fixed-results/decimal-allnull-native-saved.xlsx",
+      "sha256_after_save": "c7363caf08623da52246414daa6a951a778c2f999aa6690861eeeb321ddd7342",
+      "evidence": "work/nullable-fixed-results/decimal-allnull.json",
+      "evidence_sha256": "eaf4947d6a7424d3f94922f7fe071396c9f81173fa5793eee74a49d82ef76c41",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "fixture": "work/nullable-fixed-decimal-repopulated.xlsx",
+      "sha256": "b48c47a8e7e021694b46dfe05cc9baad0ea8ac2afd275966c6c09c7c8fa804cf",
+      "saved_workbook": "work/nullable-fixed-results/decimal-repopulated-native-saved.xlsx",
+      "sha256_after_save": "8e9921bc5d62bfc0402926e185b0d03ae59f575805068b5cb2df324ae4b45315",
+      "evidence": "work/nullable-fixed-results/decimal-repopulated.json",
+      "evidence_sha256": "da8e8d6463b6d4c55d0cde03e8c0acb29e72ca5248089bff0523333b763a4a65",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/compacted-related.xlsx",
+      "sha256": "825164fe0b75ced2eee895093cd5371ba98521ac69bdfb126ec980fb4d701c4b",
+      "saved_workbook": "work/compaction-native-results/compacted-related-filter-native-saved.xlsx",
+      "sha256_after_save": "d701b5807c12a34ce5260ee1d701ea4c1f80aec409d4dfb0cf3925436cac2f9e",
+      "evidence": "work/compaction-native-results/compacted-related-filter.json",
+      "evidence_sha256": "876d4fc797df4f3db765f4e70f6a3815e79be036665307c7258136d09ca60f6a",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          "b",
+          30
+        ],
+        [
+          "c",
+          null
+        ]
+      ]
+    },
+    {
+      "fixture": "work/million-row-storage-compacted.xlsx",
+      "sha256": "b13a01aaa04292daa7e0f2bf36cb159dbd0756cc49e72cef783f250afed9b286",
+      "saved_workbook": "work/compaction-native-results/compacted-million-counts-native-saved.xlsx",
+      "sha256_after_save": "a6106538c519ff898d4f97da2ec9d5c35023395b3da908777c7bb9f8f89696a7",
+      "evidence": "work/compaction-native-results/compacted-million-counts.json",
+      "evidence_sha256": "2912db93ca07365ed3b384e8203e5b00e8e977534e25a99705ff8825ad1b18a8",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          1000000,
+          499999500000,
+          100
+        ]
+      ]
+    },
+    {
+      "fixture": "work/production-tiny-numeric-two.xlsx",
+      "sha256": "18e104a8e514ce8c8279eaae232e8908fb9c61ba6d598970c043953594f7d075",
+      "saved_workbook": "work/production-tiny-results/numeric-two-native-saved.xlsx",
+      "sha256_after_save": "c11dbc08d1335497ee980a7cfc56b14e0c8043a2d173c9b064ef1e3a738eafa7",
+      "evidence": "work/production-tiny-results/numeric-two.json",
+      "evidence_sha256": "217942cbaf7246ad129f0c8d7e6b9c2ed5c6de1743009b8a3c55f5ddde59dc78",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "fixture": "work/production-tiny-double.xlsx",
+      "sha256": "ca60a90a522df68c5f505b96c685274373c3b0d4422b2bc406464933674a9b4f",
+      "saved_workbook": "work/production-tiny-results/double-native-saved.xlsx",
+      "sha256_after_save": "3fabfd01b929600cb4114b4ab3bcdc34b089091682f682def1d8637304da1cc2",
+      "evidence": "work/production-tiny-results/double.json",
+      "evidence_sha256": "830aceac5a570ac8eca3508300b927913073087b6ef0639fa9aff2b380591940",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/production-tiny-currency.xlsx",
+      "sha256": "8d953670dce34eb3802901e6bf94d9d3867968fb2c8d35b8d53b159ad16cb8b3",
+      "saved_workbook": "work/production-tiny-results/currency-native-saved.xlsx",
+      "sha256_after_save": "dca50ee9300d684538048a123fd7663d5a1b5a885db3efd7a35cbb2651756c21",
+      "evidence": "work/production-tiny-results/currency.json",
+      "evidence_sha256": "04eaa879de00855d7f78991e74db965e92c09f5528d9254861848c125b3be643",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "fixture": "work/production-tiny-text-mixed.xlsx",
+      "sha256": "90cab83d6bb8d74b5796318371ffcc4067ae1f7d036c1d42f2ccd563d27ee78c",
+      "saved_workbook": "work/production-tiny-results/text-mixed-native-saved.xlsx",
+      "sha256_after_save": "ef028bb3dd6fe4bf93d1789fef744984f9a52ad9dd516aa636127e2f522e7ce3",
+      "evidence": "work/production-tiny-results/text-mixed.json",
+      "evidence_sha256": "4bc9fecb84ea0d84122ca20c424f419c18981404d8674c2f2b7462437a129484",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "fixture": "work/tiny-dictionary-current-text1.xlsx",
+      "sha256": "55a46a98fcc8a3781f5fc1babe8df4fd0e76b66912a01da1990c7063482f4a3f",
+      "saved_workbook": "work/null-dictionary-results/current-text1-native-saved.xlsx",
+      "sha256_after_save": "c58b6b33e1650f37c567351a443fa59d0dcc72210ebc364e57074e0bfd5db5e8",
+      "evidence": "work/null-dictionary-results/current-text1.json",
+      "evidence_sha256": "11e0d61788d55fadf02e19e53f6ad91973fc05c76f4e08f4eab8033d03e2961e",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          1
+        ]
+      ]
+    },
+    {
+      "fixture": "work/tiny-dictionary-current-text2.xlsx",
+      "sha256": "8eee91d5121a192ad13cdd0efe59506170d3f2077ea22248173c5ae297a67201",
+      "saved_workbook": "work/null-dictionary-results/current-text2-native-saved.xlsx",
+      "sha256_after_save": "c0f798b7bdfbd3c15dac79cfa876cf151aee7c6a0e239bd4d6c7bba2a605c66a",
+      "evidence": "work/null-dictionary-results/current-text2.json",
+      "evidence_sha256": "c6f08491b3ddbb85c1acf0e170da380428cca6bc870c0ddc8295946f81b2c870",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          2
+        ]
+      ]
+    },
+    {
+      "fixture": "work/tiny-dictionary-current-text3.xlsx",
+      "sha256": "12e19751ac8b0fd69e24cee057b3ba82e66bbac27516d53b876c619ee8e481e4",
+      "saved_workbook": "work/null-dictionary-results/current-text3-native-saved.xlsx",
+      "sha256_after_save": "d3f79965b5094dadb610a7e6d8b2878517c8271161c2d4ed1a3b377c0fbf1106",
+      "evidence": "work/null-dictionary-results/current-text3.json",
+      "evidence_sha256": "17b561a18f1c590637353c4501aef25a185b3798df0c7cde45bb9717a26e5eff",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": [
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "fixture": "work/final-integrated/integrated.xlsx",
+      "saved_workbook": "work/final-integrated-results-v2/final-integrated-totals-native-saved.xlsx",
+      "sha256_after_save": "82e6deacb2492db258a974da7eb880fb0e76a9c7795196f44a83f13940cc91bc",
+      "evidence": "work/final-integrated-results-v2/final-integrated-totals.json",
+      "evidence_sha256": "1cef5e26078e38bae68a81dd8757729d55af4e9afe79a51fdd92c507b142f567",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Combined date-key/alternate-key relationship, calculated-key relationship, Currency/null/wide-int/null, explicit calculated Currency, Unicode filtering, sort/hierarchy, measure/KPI and perspective: [[4, 75, 150, 4, 3]]. All stored tables match source exactly; calculated values independently verified."
+    },
+    {
+      "fixture": "work/final-integrated/integrated.xlsx",
+      "saved_workbook": "work/final-integrated-results-v2/final-integrated-filtering-native-saved.xlsx",
+      "sha256_after_save": "b80392bba8b008dae292205ab8f5c31e0913fc35fd5d9f0da891f4fa9a47b056",
+      "evidence": "work/final-integrated-results-v2/final-integrated-filtering.json",
+      "evidence_sha256": "a007de268defce48874ec80749e7a5eb8be0218d86c955496f90d14db716c8f9",
+      "load": "pass",
+      "query": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": "Combined date-key/alternate-key relationship, calculated-key relationship, Currency/null/wide-int/null, explicit calculated Currency, Unicode filtering, sort/hierarchy, measure/KPI and perspective: [['caf\u00e9', 37.5, 75], ['\u6771\u4eac', None, None], ['\u00c5ngstr\u00f6m', 37.5, 75]]. All stored tables match source exactly; calculated values independently verified."
+    },
+    {
+      "fixture": "work/calc-date-key-one-cases.json",
+      "evidence": "work/calc-date-key-one-results/calculated-date-key-one.json",
+      "query": "expected_rejection",
+      "observed": "Retested computed DATE(2026,1,[DayNumber]) key with corrected CardinalityOne; native circular dependency persists. Explicit API guard remains supported by corrected negative evidence."
+    },
+    {
+      "fixture": "work/sql-refresh/api-source-preservation-smoke.xlsx",
+      "sha256_after_save": "0f5df68dd567ee5398fafd0bc1f0d7771a1477ac23b1d3c1fb638c47c7dfda31",
+      "evidence": "work/source-preservation-review-evidence.json",
+      "evidence_sha256": "cc428553d5b4a07a6661484fdce9ac08db149f7e7cab66fc61e9cd1be98f5025",
+      "load": "pass",
+      "refresh": "pass",
+      "save": "pass",
+      "reopen": "pass",
+      "reader_readback": "pass",
+      "observed": {
+        "[SecondRows]": 3,
+        "[SecondTotal]": 300,
+        "[SecondMin]": 3101,
+        "[FirstRows]": 3,
+        "[FirstTotal]": 75,
+        "[FirstMin]": 101
+      },
+      "preservation": "Table/column schema extensions, source Description/Timeout/custom attributes/children/annotations retained; managed connection/impersonation/security/UI fields replaced; ambiguity rejects atomically."
+    }
+  ],
+  "completion_scope": "Supported expanded MVP native acceptance; historical failed attempts remain recorded and are superseded where later passing evidence is listed. Guarded calculated date keys and untested platform boundaries remain explicit.",
+  "frozen_verification": {
+    "windows_source": {
+      "passed": 512,
+      "failed": 0,
+      "seconds": 472.17
+    },
+    "linux_installed_wheel": {
+      "passed": 506,
+      "skipped": 6,
+      "failed": 0,
+      "seconds": 417.73
+    },
+    "windows_installed_wheel": {
+      "passed": 148,
+      "failed": 0,
+      "seconds": 161.78
+    }
+  }
+}

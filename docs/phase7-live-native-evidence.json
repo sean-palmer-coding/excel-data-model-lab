@@ -1,0 +1,82 @@
+{
+  "server": "localhost\\ExcelModelLab",
+  "database": "ExcelModelLab_Phase7_Final_20261117",
+  "synthetic_data_only": true,
+  "ssas_version": "17.0.25.218",
+  "server_mode": "Tabular",
+  "xlwings": "0.33.22",
+  "pythonnet": "3.2.1",
+  "cases": {
+    "total": {
+      "columns": [
+        "[Total]"
+      ],
+      "rows": [
+        [
+          60
+        ]
+      ]
+    },
+    "labels": {
+      "columns": [
+        "[Label]",
+        "[Amount]"
+      ],
+      "rows": [
+        [
+          "Alpha",
+          10
+        ],
+        [
+          "Beta",
+          20
+        ],
+        [
+          "Gamma",
+          30
+        ]
+      ]
+    },
+    "blank": {
+      "columns": [
+        "[Blank]"
+      ],
+      "rows": [
+        [
+          null
+        ]
+      ]
+    },
+    "empty": {
+      "columns": [
+        "Sales[Amount]",
+        "Sales[Label]"
+      ],
+      "rows": []
+    },
+    "row_limit": {
+      "rejected": true,
+      "message": "Query exceeded max_rows; add a query limit or explicitly increase max_rows",
+      "has_provider_cause": false
+    },
+    "multiple_results": {
+      "rejected": true,
+      "message": "Multiple result sets are unsupported; execute one EVALUATE query at a time",
+      "has_provider_cause": false
+    },
+    "invalid_dax": {
+      "rejected": true,
+      "message": "External semantic-model query failed; inspect the exception cause for provider diagnostics",
+      "has_provider_cause": true
+    },
+    "reuse_after_errors": true,
+    "exact_nullable_integer_dataframe": true,
+    "initial_excel_save_reopen": 60,
+    "server_change_without_workbook_rewrite": true,
+    "excel_before_refresh": 60.0,
+    "refreshed_excel_save_reopen": 120
+  },
+  "excel_version": "16.0",
+  "excel_build": "20625.0",
+  "passed": true
+}

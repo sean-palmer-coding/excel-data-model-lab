@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "excel-model-lab"
+version = "0.5.0rc1"
+description = "Headless template-based writer for embedded Excel Power Pivot models"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "pbixray==0.15.5", "PyYAML>=6.0"]
+
+[project.urls]
+Repository = "https://github.com/sean-palmer-coding/excel-model-lab"
+Documentation = "https://github.com/sean-palmer-coding/excel-model-lab#readme"
+Issues = "https://github.com/sean-palmer-coding/excel-model-lab/issues"
+
+[project.optional-dependencies]
+parquet = ["pyarrow>=14"]
+native-sources = ["cryptography>=43"]
+workbooks = ["XlsxWriter>=3.2,<4"]
+dax = ["pbix-mcp==0.9.153"]
+external-query = ["pythonnet>=3.0,<4"]
+desktop = ["xlwings>=0.33,<0.34"]
+
+[project.scripts]
+xmodel-lab = "excel_model_lab.cli:main"
+excelmodel = "excel_model_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+
+[tool.setuptools.package-data]
+excel_model_lab = ["data/*.xlsx", "data/*.xml", "data/*.gz", "data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

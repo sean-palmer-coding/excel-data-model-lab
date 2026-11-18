@@ -1,0 +1,48 @@
+{
+  "version": "0.9.153",
+  "revision": "99be9c9f97ee5fa8f014d19f78371bd99e1ca8bb",
+  "license": "MIT",
+  "wheel_sha256": "25688dda8fe1fb98c78e2dcb09bc489821c3c2b4353d62be47670638b4646fd8",
+  "runtime_files": {
+    "pbix_mcp/__init__.py": {
+      "same_normalized": true,
+      "sha256": "493fb70130eb6510f613195d043fb6d441f4ea8f455dc4e4b0b40a31cead68c6"
+    },
+    "pbix_mcp/errors.py": {
+      "same_normalized": true,
+      "sha256": "cd43a551138e5c27a8a7c7712adb6a6a6fd203f161370ad26fe6ad1ce479cf55"
+    },
+    "pbix_mcp/dax/__init__.py": {
+      "same_normalized": true,
+      "sha256": "6e693304fd69de263f854a5d542c0af4813709685827dc99f8420a1773ad2209"
+    },
+    "pbix_mcp/dax/_case_data.py": {
+      "same_normalized": true,
+      "sha256": "e2273349bb5cdb234f9c4a8e89b9595db8370f2b0ca7d228baec41c5ea14810f"
+    },
+    "pbix_mcp/dax/_collation_data.py": {
+      "same_normalized": true,
+      "sha256": "6d263e90bc0d39231c615fb3741711d5663d258bf95fe47e06c9fb6f98ba5ad0"
+    },
+    "pbix_mcp/dax/calc_tables.py": {
+      "same_normalized": true,
+      "sha256": "9fef7409abeabe6f89c1b0494f75d268d7cbf236617e3e0c06a015193bb612dc"
+    },
+    "pbix_mcp/dax/collation.py": {
+      "same_normalized": true,
+      "sha256": "ed39526c67e34d59cb24d24f1618dddfb7b323c650565bd1a600f18257440c61"
+    },
+    "pbix_mcp/dax/engine.py": {
+      "same_normalized": false,
+      "sha256": "eb303ce5dee6513136e9d43c41e476ef25a0465d1fd79b77e5549bf25b8e618b"
+    },
+    "pbix_mcp/dax/function_catalog.py": {
+      "same_normalized": true,
+      "sha256": "a0aec692822f4cb41271ed516e4540f8f8efdee489aa994a09fc4c28c10908be"
+    },
+    "pbix_mcp/dax/se_scan.py": {
+      "same_normalized": true,
+      "sha256": "ef65dd70021558bec75d519d839e53f7ad28ce4965da4d5bdcec046c87ce3c21"
+    }
+  }
+}

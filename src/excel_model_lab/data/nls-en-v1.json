@@ -1,0 +1,29 @@
+{
+  "format": "EMLNLS02",
+  "flags": "LCMAP_SORTKEY | NORM_IGNORECASE",
+  "source": "Generated LCMapStringEx API results for synthetic character strings",
+  "generator": "tools/generate_nls_weights.py",
+  "windows_version": "10.0.22621",
+  "nls_version": 394243,
+  "defined_version": 394243,
+  "effective_lcid": 1033,
+  "custom_version_guid": "01000000ee575c1e00b4d0000bb1e11e",
+  "unicode_enumeration_version": "15.0.0",
+  "locales": [
+    "en-US",
+    "en-GB"
+  ],
+  "character_count": 148893,
+  "sha256": "745aa1e222bed16594fa13878b7d86e5dcc1a8e2427936b2560254db622d4626",
+  "excluded_categories": [
+    "unassigned",
+    "surrogates",
+    "private-use"
+  ],
+  "verification": "Every retained character and eight contexts byte-match native NLS for both locales.",
+  "scope": "Pinned captured NLS version, not a claim of compatibility with every past or future NLS release.",
+  "contextual_resource": "nls-jamo-v1.json",
+  "contextual_character_count": 357,
+  "contextual_sha256": "e9de964e569aae848019de9b51f896ec39d6980b8e27601d4d97b985718cf4ce",
+  "contextual_generator": "tools/generate_nls_jamo.py"
+}
