@@ -12,9 +12,9 @@ requires-python = ">=3.10"
 dependencies = ["pandas>=2.0", "pbixray==0.15.5", "PyYAML>=6.0"]
 
 [project.urls]
-Repository = "https://github.com/sean-palmer-coding/excel-model-lab"
-Documentation = "https://github.com/sean-palmer-coding/excel-model-lab#readme"
-Issues = "https://github.com/sean-palmer-coding/excel-model-lab/issues"
+Repository = "https://github.com/sean-palmer-coding/excel-data-model-lab"
+Documentation = "https://github.com/sean-palmer-coding/excel-data-model-lab#readme"
+Issues = "https://github.com/sean-palmer-coding/excel-data-model-lab/issues"
 
 [project.optional-dependencies]
 parquet = ["pyarrow>=14"]

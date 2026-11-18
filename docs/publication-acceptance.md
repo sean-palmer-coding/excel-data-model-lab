@@ -22,8 +22,8 @@ These checks do not extend the documented feature/compatibility boundaries.
 
 Published to https://pypi.org/project/excel-model-lab/0.5.0rc1/.
 A no-cache installation from the public PyPI index passed import, model creation,
-save, reopen and table readback (20, 30, 40). The existing GitHub repository
-remains private pending the owner's archive/public-repository decision.
+save, reopen and table readback (20, 30, 40). The original GitHub repository remains private to preserve historical fixtures.
+The cleaned public source is published separately as `excel-data-model-lab`.
 
 ## Project rename
 
