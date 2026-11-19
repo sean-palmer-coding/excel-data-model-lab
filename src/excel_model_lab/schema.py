@@ -329,6 +329,16 @@ def clone_table(image: AbfImage, source: str, name: str) -> AbfImage:
                 data = renamed(data.decode('utf-8')).encode('utf-8')
                 if path.endswith(('.dim.xml', '.det.xml')):
                     doc = minidom.parseString(data)
+                    if path.endswith('.det.xml'):
+                        # The engine count measure is globally named, although
+                        # owned by this table. Its space-delimited table suffix
+                        # is an identity reference, not an ordinary caption.
+                        # Keep caption-preserving token replacement above and
+                        # rebind this specific generated name deliberately.
+                        for measure in _elements(doc, 'Measure'):
+                            label = _child(measure, 'Name')
+                            if _text(label) == '__XL_Count ' + source:
+                                label.firstChild.data = '__XL_Count ' + name
                     ordinal = _elements(doc, 'Ordinal')[0]
                     ordinal.firstChild.data = str(table_ordinal)
                     data = doc.documentElement.toxml(encoding='utf-8')
