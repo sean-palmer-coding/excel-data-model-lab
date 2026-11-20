@@ -1,11 +1,10 @@
-# Implementation status — November 18, 2026
+# Implementation status — November 19, 2026
 
-Current release candidate: **0.5.0rc1**, published on PyPI.
-See [publication acceptance](docs/publication-acceptance.md) for the clean local
-run (864 passed, 50 expected skips) and public-index installation verification. Review fixes include legal internal IDs
-for punctuated captions, context-aware column cloning, and synthetic regression
-fixtures. Local source/installed-package and native Excel verification are
-recorded in [review acceptance](docs/review-fixes-acceptance.md).
+Current release candidate: **0.5.0rc2**.
+The multi-table count-measure naming fix passes **865 local installed-package
+tests**, with 50 expected excluded-fixture skips, plus native Excel related-table
+query/save/reopen verification. See [rc2 acceptance](docs/rc2-acceptance.md).
+Earlier checkpoints and their evidence remain documented below.
 
 Release validation runs locally. Hosted Actions are manual-only. The older CI
 results below describe historical checkpoints, not a new run for this release.

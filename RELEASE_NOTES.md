@@ -1,5 +1,16 @@
 # Excel Data Model Lab release notes
 
+## 0.5.0rc2 (2026-11-19)
+
+- Fix multi-table model creation: cloned tables now have unique internal count
+  measure names. Previously Excel could reject a model containing multiple
+  newly created tables even though each table loaded on its own.
+- Preserve ordinary table/column captions while rebinding this engine identity.
+- Add a three-table regression test. Native Excel verification includes a fresh
+  two-table model and the six-table, 24,000-sale demonstration workbook.
+- Update project links to the public Excel Data Model Lab repository.
+
+
 The distribution is now named `excel-data-model-lab`. Python imports and CLI
 commands remain compatible. The earlier `excel-model-lab` publication is legacy.
 

@@ -4,20 +4,25 @@ Python imports remain `excel_model_lab` and `excelmodel`. The distribution was
 renamed from `excel-model-lab`; uninstall that older distribution before switching
 to avoid overlapping package files.
 
-Current release candidate: **0.5.0rc1**.
+Current release candidate: **0.5.0rc2**.
 
-Install with `python -m pip install excel-data-model-lab==0.5.0rc1`.
+Install with `python -m pip install excel-data-model-lab==0.5.0rc2`.
 
 Excel Data Model Lab is a headless Python writer for Excel's embedded Power Pivot /
 Data Model. The writer does not require Excel, COM, Windows, or a remote model.
 Desktop Excel is used separately to verify compatibility and by the optional
 `desktop` extra for live workbook interaction.
 
+Source records can live entirely inside the embedded Data Model. Worksheet copies
+are optional; model-backed PivotTables and CUBE formulas query the model directly.
+Editing an ordinary worksheet snapshot does not update the model unless a separate
+linked-source refresh workflow has been configured.
+
 The release includes model authoring and reading, model-backed PivotTables and
 charts, workbook composition and CUBE helpers, bounded DAX evaluation, external
 semantic connection/query adapters, and optional desktop/agent workflows.
-Release verification: **864 passed, 50 expected skips** on local hardware; see
-[publication acceptance](docs/publication-acceptance.md).
+Release verification: **865 passed, 50 expected skips** on local hardware; see
+[rc2 acceptance](docs/rc2-acceptance.md).
 See [review acceptance](docs/review-fixes-acceptance.md) for local test and native
 Excel evidence, and [Phase 7 acceptance](docs/phase7-live-acceptance.md) for SSAS
 query and Excel refresh verification. Cloud authentication and external-model

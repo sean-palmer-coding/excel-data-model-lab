@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "excel-data-model-lab"
-version = "0.5.0rc1"
+version = "0.5.0rc2"
 description = "Headless template-based writer for embedded Excel Power Pivot models"
 readme = "README.md"
 license = {file = "LICENSE"}
