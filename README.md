@@ -1,59 +1,111 @@
 # Excel Data Model Lab
 
-Python imports remain `excel_model_lab` and `excelmodel`. The distribution was
-renamed from `excel-model-lab`; uninstall that older distribution before switching
-to avoid overlapping package files.
+**Create and edit Excel Power Pivot data models from Python, without Excel installed.**
 
-Current release candidate: **0.5.0rc2**.
+Build tables, relationships, DAX measure definitions, and model-backed PivotTables
+and charts in `.xlsx` files. Source records can live entirely inside the embedded
+Data Model; worksheet copies are optional.
 
-Install with `python -m pip install excel-data-model-lab==0.5.0rc2`.
+[Install from PyPI](https://pypi.org/project/excel-data-model-lab/) ·
+[Download the demo workbook](https://github.com/sean-palmer-coding/excel-data-model-lab/releases/download/v0.5.0rc2/Excel-Data-Model-Lab-Demo.xlsx) ·
+[API documentation](SOURCE_AND_DEPENDENCY_API.md) ·
+[Report an issue](https://github.com/sean-palmer-coding/excel-data-model-lab/issues)
 
-Excel Data Model Lab is a headless Python writer for Excel's embedded Power Pivot /
-Data Model. The writer does not require Excel, COM, Windows, or a remote model.
-Desktop Excel is used separately to verify compatibility and by the optional
-`desktop` extra for live workbook interaction.
-
-Source records can live entirely inside the embedded Data Model. Worksheet copies
-are optional; model-backed PivotTables and CUBE formulas query the model directly.
-Editing an ordinary worksheet snapshot does not update the model unless a separate
-linked-source refresh workflow has been configured.
-
-The release includes model authoring and reading, model-backed PivotTables and
-charts, workbook composition and CUBE helpers, bounded DAX evaluation, external
-semantic connection/query adapters, and optional desktop/agent workflows.
-Release verification: **865 passed, 50 expected skips** on local hardware; see
-[rc2 acceptance](docs/rc2-acceptance.md).
-See [review acceptance](docs/review-fixes-acceptance.md) for local test and native
-Excel evidence, and [Phase 7 acceptance](docs/phase7-live-acceptance.md) for SSAS
-query and Excel refresh verification. Cloud authentication and external-model
-PivotTable generation remain outside the verified scope. Historical CI results
-in milestone reports apply to those checkpoints; this release is tested locally.
-
-See [STATUS.md](STATUS.md) for current implementation limits and
-[SPEC_AND_CLI.md](SPEC_AND_CLI.md) for JSON authoring and command-line validation.
-
-The current source adds native Data Model PivotTables, PivotCharts, slicers and
-date timelines, including controls connected to multiple reports. It supports
-selected-member filters, label sorting, chart formatting, inspection, and
-guarded edits/removal of saved reports and controls. Excel calculates and renders
-the reports; Python does not require Excel to author them. Native tests verify
-filtering and save/reopen, including connected controls and the combined example.
-See the [report API guide](docs/phase2-reports.md),
-[runnable example](examples/model_reports.py), and
-[Phase 2 acceptance record](docs/phase2-acceptance.md) for verification evidence
-and precise limits. On the tested Excel build, opening a fresh report or using
-ordinary Refresh/Refresh All leaves its layout blank. Select the report's anchor
-cell, check **Defer Layout Update** in **PivotTable Fields**, then click **Update**.
-The optional [Windows helper](tools/update_model_reports.ps1) performs the tested
-`PivotTable.Update()` action for all embedded-model reports and saves a separate
-output. See the guide's first-use instructions; automatic rendering on open is
-not guaranteed.
+![Excel-calculated demo dashboard with revenue, gross profit, monthly trends and a category PivotChart](docs/images/dashboard.png)
 
 ## Install
 
+Python 3.10 or newer. The current release is **0.5.0rc2**, an early release candidate.
+
 ```bash
-python -m pip install .
+python -m pip install excel-data-model-lab==0.5.0rc2
 ```
+
+Imports remain `excel_model_lab` and `excelmodel`. If you previously installed the
+old `excel-model-lab` distribution, uninstall it before switching to avoid
+shared package files.
+
+## Quick start
+
+Create two related tables and a revenue PivotTable. No source-data worksheets,
+Excel installation, COM, or remote model are required to author this file.
+
+```python
+import pandas as pd
+from excel_model_lab import WorkbookModel, WorkbookReport, PivotTableSpec
+
+products = pd.DataFrame({
+    "ProductID": [1, 2, 3],
+    "Category": ["Camping", "Cycling", "Hiking"],
+})
+sales = pd.DataFrame({
+    "ProductID": [1, 2, 1, 3, 2],
+    "Revenue": [120, 300, 80, 150, 200],
+})
+model = WorkbookModel.create({"Sales": sales, "Products": products})
+model.add_relationship("Sales", "ProductID", "Products", "ProductID")
+model.add_measure("Sales", "Total Revenue", "SUM(Sales[Revenue])",
+                  format_string="$#,##0.00")
+
+report = WorkbookReport(model)
+report.add_pivot_table(PivotTableSpec(
+    "RevenueByCategory", "Category Report",
+    rows=(("Products", "Category"),), measures=("Total Revenue",),
+))
+report.save("sales-report.xlsx")
+```
+
+[Runnable script](examples/quickstart.py). Expected revenues are Camping **200**,
+Cycling **500**, Hiking **150**, and total **850**.
+
+**Excel calculates and renders the reports.** A freshly authored PivotTable may
+need an initial layout update: select its anchor cell, check **Defer Layout
+Update** in the PivotTable Fields pane, then click **Update**. Ordinary Refresh
+may leave a fresh layout blank. See [first-use instructions](docs/phase2-reports.md#first-use-in-desktop-excel)
+or the optional [Windows update helper](tools/update_model_reports.ps1).
+
+## Explore the demo
+
+[Download the ready-to-explore workbook](https://github.com/sean-palmer-coding/excel-data-model-lab/releases/download/v0.5.0rc2/Excel-Data-Model-Lab-Demo.xlsx)
+(about 3.3 MB). It contains synthetic outdoor-retail data, with no external data
+source required. The model and reports have already been calculated and saved
+in desktop Excel, then verified after reopening.
+
+- 24,000 sales across two years, six model tables and six relationships.
+- 11 measures, seven calculated columns, a KPI, three hierarchies and two perspectives.
+- Three PivotTables, a PivotChart, an ordinary chart, two slicers and a timeline.
+- CUBE formula examples, source snapshots, an independent Checks tab and a Feature Guide.
+
+Start on **Dashboard**, then open **Feature Guide** and **Model Map**.
+Use **Power Pivot > Manage** to inspect the embedded model. The data-sheet copies
+are for inspection; editing them does not automatically update the model.
+
+![Model-backed sales PivotTable with category and region slicers and an order-date timeline](docs/images/pivot-report.png)
+
+<details>
+<summary>View the demo's tables and relationships</summary>
+
+![Six model tables and six active or inactive relationship definitions](docs/images/model-map.png)
+
+</details>
+
+## Scope and verification
+
+The core writer is headless. Desktop Excel is used for native compatibility
+verification, report calculation/rendering, and the optional `desktop` extra.
+The library also supports workbook composition, CUBE formula helpers, bounded
+DAX evaluation, external semantic connections/query adapters, and desktop/agent
+workflows. It is not a complete headless Excel or DAX engine.
+
+**865 local tests passed, with 50 expected historical-fixture skips**, plus native
+Excel related-table query/save/reopen verification for rc2. See
+[rc2 acceptance](docs/rc2-acceptance.md), [report capabilities](docs/phase2-reports.md),
+and [current limitations](STATUS.md). Cloud authentication and external-model
+PivotTable generation remain outside the verified scope. Historical CI results
+apply to their documented checkpoints; current release checks run locally.
+
+Compatibility feedback is welcome. When reporting a problem, include the package,
+Python and Excel versions, the error, and a minimal synthetic reproducer.
 
 ## Python API
 
